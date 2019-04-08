@@ -10,6 +10,7 @@
 [PHONG]
 
 - Created main menu screen
+- App icon is added
 
 # Week 5, Thursday 4/April
 
