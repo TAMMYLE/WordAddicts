@@ -11,6 +11,7 @@
 
 - Created main menu screen
 - App icon is added
+- compareWords function is added
 
 # Week 5, Thursday 4/April
 
