@@ -6,6 +6,11 @@
 - Created randomWord function
 - Created shuffleWord function
 
+
+[PHONG]
+
+- Created main menu screen
+
 # Week 5, Thursday 4/April
 
 [TAMMY]
