@@ -58,4 +58,34 @@ public class LettersStorage {
 
         return word;
     }
+
+    /**
+     compareWords (added by Phong 8/4/2019)
+     function compare two given words
+
+     parameters
+     two words that need to be compared
+
+     returns a boolean value indicating if two given words are match
+     */
+    public static Boolean compareWords(String word1, String word2){
+        char a[] = word1.toCharArray();
+        char b[] = word2.toCharArray();
+
+        boolean match = true;
+        if(a.length != b.length || a.length == 0 || b.length == 0)
+        {
+            match = false;
+            return match;
+        }
+
+        for (int i = 0; i < a.length; i++)
+        {
+            if(a[i] != b[i])
+                match = false;
+
+        }
+        return match;
+    }
+
 }
