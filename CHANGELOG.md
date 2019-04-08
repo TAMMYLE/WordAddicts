@@ -1,5 +1,5 @@
 
-# Week 6, Monday 8/April [HENRY]
+# Week 6, Monday 8/April
 [TAMMY]
 - Created LetterStorage class
 - Created an array that stores all words
