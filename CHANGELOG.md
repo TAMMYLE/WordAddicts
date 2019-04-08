@@ -5,6 +5,8 @@
 - Created an array that stores all words
 - Created randomWord function
 - Created shuffleWord function
+
+
 [PHONG]
 -created the main menu screen
 
