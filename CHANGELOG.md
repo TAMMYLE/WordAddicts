@@ -8,7 +8,8 @@
 
 
 [PHONG]
--created the main menu screen
+
+- Created main menu screen
 
 # Week 5, Thursday 4/April
 
