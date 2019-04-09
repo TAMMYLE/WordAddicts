@@ -13,6 +13,10 @@
 - App icon is added
 - compareWords function is added
 
+# Week 6, Tuesday 9/April
+[PHONG]
+- basic function for simple gameplay is added
+
 # Week 5, Thursday 4/April
 
 [TAMMY]
