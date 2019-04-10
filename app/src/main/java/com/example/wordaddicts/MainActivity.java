@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     EditText textInput;
-    Button checkButton;
+    Button checkButton, resetButton;
     TextView result;
     TextView shuffedLetters;
 
@@ -108,28 +108,46 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+//        get all buttons, text input from activity_main.xml and assign their value to above variables
         textInput = (EditText) findViewById(R.id.editText);
         checkButton = (Button) findViewById(R.id.check);
+        resetButton = (Button) findViewById(R.id.reset);
         result = (TextView) findViewById(R.id.result);
         shuffedLetters = (TextView) findViewById(R.id.textView2);
-
+        // get a random word and shuffle the letters of that word
         givenWord = randomWord();
         shuffedWord = shuffleWord(givenWord);
-        shuffedLetters.setText(shuffedWord);
+        shuffedLetters.setText(shuffedWord);// display that shuffeld word
 
-
+        //this function checks if the word match when ever the user click check button (created by Phong 9/4/2019)
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 guessWord = textInput.getText().toString();
+                //display a message according to the result
                 if(compareWords(givenWord, guessWord))
                 {
                     result.setText("you got it!!!");
                 }
+                else
+                {
+                    result.setText("Try another word");
+                }
             }
         });
 
+        //this function reset the game, give new shuffled word (created by Phong 10/4/2019)
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                givenWord = randomWord();
+                shuffedWord = shuffleWord(givenWord);
+                shuffedLetters.setText(shuffedWord);
+                result.setText("Result");
+                textInput.setText("");
+
+            }
+        });
 
     }
 }
