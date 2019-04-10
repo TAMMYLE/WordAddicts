@@ -17,6 +17,9 @@
 [PHONG]
 - basic function for simple gameplay is added
 
+# Week 6, Wednesday 10/April
+[PHONG]
+- reset function is added
 # Week 5, Thursday 4/April
 
 [TAMMY]
