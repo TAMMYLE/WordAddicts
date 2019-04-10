@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <!-- Added by Tammy Le, 10/4/2019-->
+    <color name="colorPrimary">#015eF4</color>
+    <color name="colorPrimaryDark">#070D29</color>
+    <color name="colorAccent">#e9FeFF</color>
+    <color name="colorBlueJeans">#0489FF</color>
+    <color name="colorEarthOrange">#E2783E</color>
+    <color name="colorAverageBeige">#D1CCB3</color>
+    <color name="colorCharcoal">#7884A5</color>
+    <color name="colorDarkJeans">#2657a5</color>
+    <color name="colorEarthYellow">#f9b41e</color>
+    <color name="colorAverageBlue">#B8DECE</color>
+    <color name="colorWhite">#FDFEFE</color>
 </resources>

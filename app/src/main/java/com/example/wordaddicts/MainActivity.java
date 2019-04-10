@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+//<<<<<<< Updated upstream
 
 import java.util.Random;
 
@@ -148,6 +149,55 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+//=======
+//import android.widget.Toast;
+//
+//public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+//
+//    private TextView shuffleWord;
+//    private EditText enterWord;
+//    private Button check;
+//    private Button newgame;
+//    private String wordToFind;
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//        shuffleWord = (TextView) findViewById(R.id.shuffleWord);
+//        enterWord = (EditText) findViewById(R.id.enterWord);
+//        check = (Button) findViewById(R.id.check);
+//        check.setOnClickListener(this);
+//        newgame = (Button) findViewById(R.id.newgame);
+//        newgame.setOnClickListener(this);
+//
+//        newgame();
+//    }
+//
+//    @Override
+//    public void onClick(View v) {
+//        if (v == check){
+//            check();
+//        } else if (v == newgame){
+//            newgame();
+//        }
+//    }
+//
+//    private void check() {
+//        String myWord = enterWord.getText().toString();
+//
+//        if (wordToFind.equals(myWord)) {
+//            Toast.makeText(this, "Congratulations ! Your word is " + wordToFind, Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(this, "Oops! Try again !", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
+//    private void newgame() {
+//        wordToFind = Anagram.randomWord();
+//        String shuffledWord = Anagram.shuffleWord(wordToFind);
+//>>>>>>> Stashed changes
+//
     }
 }
