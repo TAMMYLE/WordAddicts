@@ -3,6 +3,14 @@
 [HENRY]
 - Who worked today? I can see code was changed, but I don't see an update here to explain it. At the end of EVERY work day/work session, update this changelog to tell your partner what you changed, so that they know (and so I know). Thanks :)
 - Leave my comments in here every week.
+[TAMMY]
+- I think there was misunderstanding because we have updated the progress below. As you created new "Wednesday 10/April", I will copy and paste them here :)
+[PHONG]
+- reset function is added
+
+[TAMMY]
+- Updated Menu xml file: changed the main layout, added ScrollView to the Menu layout
+
 
 
 # Week 6, Monday 8/April
