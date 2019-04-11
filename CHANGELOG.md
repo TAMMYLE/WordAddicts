@@ -1,4 +1,10 @@
 
+# Week 6, Wednesday 10/April
+[HENRY]
+- Who worked today? I can see code was changed, but I don't see an update here to explain it. At the end of EVERY work day/work session, update this changelog to tell your partner what you changed, so that they know (and so I know). Thanks :)
+- Leave my comments in here every week.
+
+
 # Week 6, Monday 8/April
 [TAMMY]
 - Created LetterStorage class
@@ -23,6 +29,7 @@
 
 [TAMMY]
 - Updated Menu xml file: changed the main layout, added ScrollView to the Menu layout
+
 # Week 5, Thursday 4/April
 
 [TAMMY]
