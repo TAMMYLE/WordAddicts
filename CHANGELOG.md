@@ -9,6 +9,7 @@
 - reset function is added
 
 [TAMMY]
+- Link from SplashScreen to Menu, from Menu to Main 
 - Updated Menu xml file: changed the main layout, added ScrollView to the Menu layout
 
 
