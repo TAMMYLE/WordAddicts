@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by Tammy Le, 15/4/2019-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HighScoreActivity">
+
+    <TextView
+        android:id="@+id/highscorelabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="HIGH SCORES"
+        android:textSize="40sp"
+        android:textColor="@color/colorDarkJeans"
+        />
+
+    <TextView
+        android:id="@+id/wordscore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="40sp"
+        android:textColor="@color/colorEarthYellow"
+
+        />
+
+</LinearLayout>

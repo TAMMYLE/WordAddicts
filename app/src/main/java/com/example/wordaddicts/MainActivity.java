@@ -1,5 +1,7 @@
 package com.example.wordaddicts;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
     Button checkButton, resetButton;
     TextView result;
     TextView shuffedLetters;
+    Button highscore;
 
     String guessWord;
     String givenWord;
@@ -118,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         resetButton = (Button) findViewById(R.id.reset);
         result = (TextView) findViewById(R.id.result);
         shuffedLetters = (TextView) findViewById(R.id.textView2);
+        highscore = (Button) findViewById(R.id.highscore);
         // get a random word and shuffle the letters of that word
         givenWord = randomWord();
         shuffedWord = shuffleWord(givenWord);
@@ -153,6 +157,21 @@ public class MainActivity extends AppCompatActivity {
                 result.setText("Score: 0");             //click reset -> the Score back to 0 - added by Tammy Le
                 textInput.setText("");
 
+            }
+        });
+
+        highscore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences preferences = getSharedPreferences("PREFS", 0);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("latestscore", score);
+                editor.apply();
+
+                Intent intent = new Intent(getApplicationContext(), HighScoreActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 //=======
