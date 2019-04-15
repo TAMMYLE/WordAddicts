@@ -51,4 +51,6 @@
 - renew function is added: this function is worked when player enters correct word then the given word is reset as well as the the input is cleared. [1.5 hours]
 - added Score field which will add extra point for the score everytime player has a correct word. [1.5 hrs]
 - Updated the reset function with the score reset to 0. [15 mins]
+- added Highscore activity which will show the best 3 highest scores of the game (java/xml) . [2 hrs]
+- added Highscore button on MainActivity and used SharedPreferences to save and retrieve the scores. [15 mins]
 
