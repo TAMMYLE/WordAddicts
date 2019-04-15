@@ -12,6 +12,9 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    //declare variable for score . <Tammy Le - 15/4/2019>
+    int score;
+
     public static final Random RANDOM = new Random();
     public static final String[] WORDS = {"LAPTOP", "SUNDAY", "GAME", "MARVELLOUS", "WHITE", "UPDATE", "FLOWER", "HOTEL", "TEACHER", "STRUCTURE", "YOGURT", "WONDER", "HOPE",
             "BEAUTIFUL", "UNUSUAL", "JUICE", "ORANGE", "STRAWBERRY", "CUP", "POP", "FLOP", "MOP", "UNIQUE"};
@@ -127,12 +130,15 @@ public class MainActivity extends AppCompatActivity {
                 guessWord = textInput.getText().toString();
                 //display a message according to the result
                 if(compareWords(givenWord, guessWord))
-                {
-                    result.setText("you got it!!!");
+                {                                       //Added by Tammy Le, 15/4/2019
+                    score += 10;                        //if the answer is correct, score plus ten
+                    result.setText("Score: " + score);  //set the Score field with extra score
+                    textInput.setText("");              //clear the input
+                    renewWord();                        //renew the given word
                 }
                 else
                 {
-                    result.setText("Try another word");
+                    result.setText(score);
                 }
             }
         });
@@ -144,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 givenWord = randomWord();
                 shuffedWord = shuffleWord(givenWord);
                 shuffedLetters.setText(shuffedWord);
-                result.setText("Result");
+                result.setText("Score: 0");             //click reset -> the Score back to 0 - added by Tammy Le
                 textInput.setText("");
 
             }
@@ -199,5 +205,12 @@ public class MainActivity extends AppCompatActivity {
 //        String shuffledWord = Anagram.shuffleWord(wordToFind);
 //>>>>>>> Stashed changes
 //
+    }
+    //Added by Tammy Le, 15/4/2019
+    //Function to renew the word that player has to guess
+    public void renewWord() {
+        givenWord = randomWord();
+        shuffedWord = shuffleWord(givenWord);
+        shuffedLetters.setText(shuffedWord);
     }
 }
