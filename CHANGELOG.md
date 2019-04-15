@@ -46,5 +46,9 @@
 - Feedback: I feel your project is falling a bit behind, and you're not putting in enough time to pass. Show me 10-14 hours each per week.. where was it spent? 
 - Feedback: I want you to start writing the time taken per changelog item (in brackets at the end of each line), so that you can see where time is being spent / not being spent enough. [Henry]
 
-
+# Week 7, Monday 15 April
+[TAMMY]
+- renew function is added: this function is worked when player enters correct word then the given word is reset as well as the the input is cleared. [1.5 hours]
+- added Score field which will add extra point for the score everytime player has a correct word. [1.5 hrs]
+- Updated the reset function with the score reset to 0. [15 mins]
 
