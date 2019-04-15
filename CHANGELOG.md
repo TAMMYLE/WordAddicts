@@ -1,18 +1,10 @@
 
-# Week 6, Wednesday 10/April
-[HENRY]
-- Who worked today? I can see code was changed, but I don't see an update here to explain it. At the end of EVERY work day/work session, update this changelog to tell your partner what you changed, so that they know (and so I know). Thanks :)
-- Leave my comments in here every week.
+# Week 5, Thursday 4/April
 
 [TAMMY]
-- I think there was misunderstanding because we have updated the progress below. As you created new "Wednesday 10/April", I will copy and paste them here :)
-
-[PHONG]
-- reset function is added
-
-[TAMMY]
-- Link from SplashScreen to Menu, from Menu to Main 
-- Updated Menu xml file: changed the main layout, added ScrollView to the Menu layout
+- Created Logo and Icon for WordAddicts
+- Create Splashsrceen (SplashAcivity) with Logo 
+- Splashscreen jumps to Mainscreen (Main Activity)
 
 
 
@@ -23,27 +15,36 @@
 - Created randomWord function
 - Created shuffleWord function
 
-
 [PHONG]
 
 - Created main menu screen
 - App icon is added
 - compareWords function is added
 
+
 # Week 6, Tuesday 9/April
 [PHONG]
 - basic function for simple gameplay is added
 
+
 # Week 6, Wednesday 10/April
+[HENRY]
+- Who worked today? I can see code was changed, but I don't see an update here to explain it. At the end of EVERY work day/work session, update this changelog to tell your partner what you changed, so that they know (and so I know). Thanks :)
+- Leave my comments in here every week.
+
+[TAMMY]
+- I think there was misunderstanding because we have updated the progress below. As you created new "Wednesday 10/April", I will copy and paste them here :)
+- Updated Menu xml file: changed the main layout, added ScrollView to the Menu layout
+- Link from SplashScreen to Menu, from Menu to Main 
+
 [PHONG]
 - reset function is added
 
-[TAMMY]
-- Updated Menu xml file: changed the main layout, added ScrollView to the Menu layout
+# Week 7, Monday 15 April
+- Feedback: Please ensure you keep the dates in this file in order. Otherwise you'll get confused. [Henry]
+- Feedback: Some functions still missing function comments. [Henry]
+- Feedback: I feel your project is falling a bit behind, and you're not putting in enough time to pass. Show me 10-14 hours each per week.. where was it spent? 
+- Feedback: I want you to start writing the time taken per changelog item (in brackets at the end of each line), so that you can see where time is being spent / not being spent enough. [Henry]
 
-# Week 5, Thursday 4/April
 
-[TAMMY]
-- Created Logo and Icon for WordAddicts
-- Create Splashsrceen (SplashAcivity) with Logo 
-- Splashscreen jumps to Mainscreen (Main Activity)
+
