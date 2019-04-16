@@ -54,3 +54,7 @@
 - added Highscore activity which will show the best 3 highest scores of the game (java/xml) . [2 hrs]
 - added Highscore button on MainActivity and used SharedPreferences to save and retrieve the scores. [15 mins]
 
+# Week 7, Tuesday 16 April
+[PHONG]
+- updated the main function, make it more object-oriented by using function from LettersStorage class [1 hour]
+
