@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 //<<<<<<< Updated upstream
 
 import java.util.Random;
@@ -17,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     //declare variable for score . <Tammy Le - 15/4/2019>
     int score;
     EditText textInput;
-    Button checkButton, resetButton;
-    TextView result;
+    Button checkButton, resetButton, hintButton;
+    TextView result, hint;
     TextView shuffedLetters;
     Button highscore;
 
@@ -36,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         textInput = (EditText) findViewById(R.id.editText);
         checkButton = (Button) findViewById(R.id.check);
         resetButton = (Button) findViewById(R.id.reset);
+        hintButton = (Button) findViewById(R.id.hint);
         result = (TextView) findViewById(R.id.result);
+        hint = (TextView) findViewById(R.id.hintField);
         shuffedLetters = (TextView) findViewById(R.id.textView2);
         highscore = (Button) findViewById(R.id.highscore);
         // get a random word and shuffle the letters of that word
@@ -56,10 +59,13 @@ public class MainActivity extends AppCompatActivity {
                     result.setText("Score: " + score);  //set the Score field with extra score
                     textInput.setText("");              //clear the input
                     renewWord();                        //renew the given word
+//
                 }
                 else
                 {
-                    result.setText(score);
+                    result.setText("Score" + score);
+                    Toast.makeText(getApplicationContext(), "Oops! Try again !", Toast.LENGTH_SHORT).show();
+//
                 }
             }
         });
@@ -91,6 +97,18 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        hintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!(givenWord.length() > hint.length()))
+                {
+                    Toast.makeText(getApplicationContext(), "You have got all the hints", Toast.LENGTH_SHORT).show();
+                }
+                availableWords.giveHint(givenWord, hint);
+            }
+        });
+
 //=======
 //import android.widget.Toast;
 //
