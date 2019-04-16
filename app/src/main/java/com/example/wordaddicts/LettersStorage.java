@@ -69,6 +69,8 @@ public class LettersStorage {
      returns a boolean value indicating if two given words are match
      */
     public static Boolean compareWords(String word1, String word2){
+        word1 = word1.toLowerCase();
+        word2 = word2.toLowerCase();
         char a[] = word1.toCharArray();
         char b[] = word2.toCharArray();
 

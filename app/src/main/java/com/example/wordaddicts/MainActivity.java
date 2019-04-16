@@ -16,89 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     //declare variable for score . <Tammy Le - 15/4/2019>
     int score;
-
-    public static final Random RANDOM = new Random();
-    public static final String[] WORDS = {"LAPTOP", "SUNDAY", "GAME", "MARVELLOUS", "WHITE", "UPDATE", "FLOWER", "HOTEL", "TEACHER", "STRUCTURE", "YOGURT", "WONDER", "HOPE",
-            "BEAUTIFUL", "UNUSUAL", "JUICE", "ORANGE", "STRAWBERRY", "CUP", "POP", "FLOP", "MOP", "UNIQUE"};
-
-
-    /**
-     randomWord:
-
-     function that choose a random word from an array of words above
-
-     Returns:
-     return the pseudorandom word
-
-     */
-    public static String randomWord(){
-        return WORDS[RANDOM.nextInt(WORDS.length)];
-    }
-
-    /**
-     shuffleWord:
-
-     function that shuffles the chosen word
-
-     Parameters:
-
-     word - a string storing a word
-
-     Returns:
-     if word is not empty and the length is not space => converting word to a new character array
-     then, shuffling the word
-
-     */
-
-    private String shuffleWord(String word) {
-        if (word != null && !"".equals(word)){
-            char a[] = word.toCharArray();
-
-            for (int i = 0; i < a.length; i++){
-                int j = RANDOM.nextInt(a.length);
-                char tmp = a[i];
-                a[i]= a[j];
-                a[j] = tmp;
-            }
-
-            return new String(a);
-        }
-
-        return word;
-    }
-    /**
-     compareWords (edited by Phong 8/4/2019)
-     function compare two given words
-
-     parameters
-     two words that need to be compared
-
-     returns a boolean value indicating if two given words are match
-     */
-    public Boolean compareWords(String word1, String word2){
-        word1 = word1.toLowerCase();
-        word2 = word2.toLowerCase();
-        char a[] = word1.toCharArray();
-        char b[] = word2.toCharArray();
-
-        boolean match = true;
-        if(a.length != b.length || a.length == 0 || b.length == 0)
-        {
-            match = false;
-            return match;
-        }
-
-        for (int i = 0; i < a.length; i++)
-        {
-            if(a[i] != b[i])
-                match = false;
-
-        }
-        return match;
-    }
-
-
-
     EditText textInput;
     Button checkButton, resetButton;
     TextView result;
@@ -109,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     String givenWord;
     String shuffedWord;
 
-    LettersStorage availableWords;
+    LettersStorage availableWords = new LettersStorage();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         shuffedLetters = (TextView) findViewById(R.id.textView2);
         highscore = (Button) findViewById(R.id.highscore);
         // get a random word and shuffle the letters of that word
-        givenWord = randomWord();
-        shuffedWord = shuffleWord(givenWord);
+        givenWord = availableWords.randomWord();
+        shuffedWord = availableWords.shuffleWord(givenWord);
         shuffedLetters.setText(shuffedWord);// display that shuffeld word
 
         //this function checks if the word match when ever the user click check button (created by Phong 9/4/2019)
@@ -133,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 guessWord = textInput.getText().toString();
                 //display a message according to the result
-                if(compareWords(givenWord, guessWord))
+                if(availableWords.compareWords(givenWord, guessWord))
                 {                                       //Added by Tammy Le, 15/4/2019
                     score += 10;                        //if the answer is correct, score plus ten
                     result.setText("Score: " + score);  //set the Score field with extra score
@@ -151,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                givenWord = randomWord();
-                shuffedWord = shuffleWord(givenWord);
+                givenWord = availableWords.randomWord();
+                shuffedWord = availableWords.shuffleWord(givenWord);
                 shuffedLetters.setText(shuffedWord);
                 result.setText("Score: 0");             //click reset -> the Score back to 0 - added by Tammy Le
                 textInput.setText("");
@@ -228,8 +145,8 @@ public class MainActivity extends AppCompatActivity {
     //Added by Tammy Le, 15/4/2019
     //Function to renew the word that player has to guess
     public void renewWord() {
-        givenWord = randomWord();
-        shuffedWord = shuffleWord(givenWord);
+        givenWord = availableWords.randomWord();
+        shuffedWord = availableWords.shuffleWord(givenWord);
         shuffedLetters.setText(shuffedWord);
     }
 }
