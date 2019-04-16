@@ -75,7 +75,7 @@ public class LettersStorage {
         char b[] = word2.toCharArray();
 
         boolean match = true;
-        if(a.length != b.length || a.length == 0 || b.length == 0)
+        if(a.length != b.length || a.length == 0 || b.length == 0 || a != null || a != null)
         {
             match = false;
             return match;
