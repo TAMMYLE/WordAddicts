@@ -94,19 +94,25 @@ public class LettersStorage {
     }
 
     //hint function added by Phong (16/4/2019)
-    public void giveHint(String givenWord, TextView hintField)
+    //parameters : givenWord is what the right word is
+    //             hintField is what already revealed
+    //             coin that the player has
+    //return : void
+    // functionality: give hint accordingly
+    public void giveHint(String givenWord, TextView hintField, int coin)
     {
+        //if there is not enough coins, there will be no hint given
+        if(coin <= 0)
+        {
+            return;
+        }
         String hintRevealed = hintField.getText().toString(); // get the string from the hint field
         char[] a = givenWord.toCharArray(); // turn the givenWord into an array of chars
         char[] b = hintRevealed.toCharArray(); // turn what on the hint field into an array of char
         char[] c = new char[b.length +1 ]; // a new array which has the length of (b+1)
 
 
-//        // get all the hints already revealed into array c
-//        for (int i = 0; i<b.length; i++ )
-//        {
-//            c[i] = b[i];
-//        }
+
         //if given word is longer than what hints already revealed than another letter
         //assign all elements of a to c.length to c
         if(a.length > b.length)

@@ -17,10 +17,13 @@ public class MainActivity extends AppCompatActivity {
 
     //declare variable for score . <Tammy Le - 15/4/2019>
     int score;
+
+    public int coin = 500; //added a coin integer <Phong 16/4/2019>
     EditText textInput;
     Button checkButton, resetButton, hintButton;
     TextView result, hint;
     TextView shuffedLetters;
+    TextView coinView; //added coinView <Phong - 16/4/2019>
     Button highscore;
 
     String guessWord;
@@ -41,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         result = (TextView) findViewById(R.id.result);
         hint = (TextView) findViewById(R.id.hintField);
         shuffedLetters = (TextView) findViewById(R.id.textView2);
+
+        coinView = (TextView) findViewById(R.id.coinView);
+        coinView.setText("Coin: " + coin);//display coin player has
+
         highscore = (Button) findViewById(R.id.highscore);
         // get a random word and shuffle the letters of that word
         givenWord = availableWords.randomWord();
@@ -79,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 shuffedLetters.setText(shuffedWord);
                 result.setText("Score: 0");             //click reset -> the Score back to 0 - added by Tammy Le
                 textInput.setText("");
+                hint.setText("");                       //set hint to empty
 
             }
         });
@@ -98,14 +106,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //hintButtun function added <Phong 16/4/2019>
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //pop up a message if the hints is already fully revealed
                 if(!(givenWord.length() > hint.length()))
                 {
                     Toast.makeText(getApplicationContext(), "You have got all the hints", Toast.LENGTH_SHORT).show();
                 }
-                availableWords.giveHint(givenWord, hint);
+                //pop up a message if player doesn't have enough coins
+                if(coin <= 100)
+                {
+                    Toast.makeText(getApplicationContext(), "You don't have enough coin to buy hint", Toast.LENGTH_SHORT).show();
+                }
+
+                availableWords.giveHint(givenWord, hint, coin);
+
+                //minus the coins needed to buy hint
+                coin = coin - 100;
+                if(coin <= 0)
+                {
+                    coin = 0;
+                }
+                coinView.setText("Coin: " + coin);
             }
         });
 
