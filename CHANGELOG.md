@@ -59,4 +59,5 @@
 - updated the main function, make it more object-oriented by using function from LettersStorage class [1 hour]
 - fixed errors of checkButton functions in Main Activity [15 minutes]
 - Hint Function added [3 hours]
+- Coin which is used to reveal hints is added
 
