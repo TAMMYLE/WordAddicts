@@ -1,5 +1,7 @@
 package com.example.wordaddicts;
 
+import android.widget.TextView;
+
 import java.util.Random;
 
 /**
@@ -75,7 +77,7 @@ public class LettersStorage {
         char b[] = word2.toCharArray();
 
         boolean match = true;
-        if(a.length != b.length || a.length == 0 || b.length == 0 || a != null || a != null)
+        if(a.length != b.length || a.length == 0 || b.length == 0)
         {
             match = false;
             return match;
@@ -88,6 +90,43 @@ public class LettersStorage {
 
         }
         return match;
+    }
+
+
+    //hint function added by Phong (16/4/2019)
+    //parameters : givenWord is what the right word is
+    //             hintField is what already revealed
+    //             coin that the player has
+    //return : void
+    // functionality: give hint accordingly
+
+    public void giveHint(String givenWord, TextView hintField, int coin)
+    {
+        //if there is not enough coins, there will be no hint given
+        if(coin <= 0)
+        {
+            return;
+        }
+        String hintRevealed = hintField.getText().toString(); // get the string from the hint field
+        char[] a = givenWord.toCharArray(); // turn the givenWord into an array of chars
+        char[] b = hintRevealed.toCharArray(); // turn what on the hint field into an array of char
+        char[] c = new char[b.length +1 ]; // a new array which has the length of (b+1)
+
+
+
+        //if given word is longer than what hints already revealed than another letter
+        //assign all elements of a to c.length to c
+        if(a.length > b.length)
+        {
+            for (int i = 0; i<c.length; i++ )
+            {
+                c[i] = a[i];
+            }
+        }
+
+        //take array c as new hint with one added letter
+        hintRevealed = String.copyValueOf(c);
+        hintField.setText(hintRevealed);
     }
 
 }
