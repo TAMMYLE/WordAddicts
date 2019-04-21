@@ -54,6 +54,30 @@ public class MainActivity extends AppCompatActivity {
         shuffedWord = availableWords.shuffleWord(givenWord);
         shuffedLetters.setText(shuffedWord);// display that shuffeld word
 
+//        //this function checks if the word match when ever the user click check button (created by Phong 9/4/2019)
+//        checkButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                guessWord = textInput.getText().toString();
+//                //display a message according to the result
+//                if(availableWords.compareWords(givenWord, guessWord))
+//                {                                       //Added by Tammy Le, 15/4/2019
+//                    score += 10;                        //if the answer is correct, score plus ten
+//                    result.setText("Score: " + score);  //set the Score field with extra score
+//                    textInput.setText("");              //clear the input
+//                    renewWord();                        //renew the given word
+////
+//                }
+//                else
+//                {
+//                    result.setText("Score" + score);
+//                    //Toast.makeText(getApplicationContext(), "Oops! Try again !", Toast.LENGTH_SHORT).show();
+////
+//                }
+//            }
+//        });
+
+
         //this function checks if the word match when ever the user click check button (created by Phong 9/4/2019)
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,12 +95,11 @@ public class MainActivity extends AppCompatActivity {
                 else
                 {
                     result.setText("Score" + score);
-                    Toast.makeText(getApplicationContext(), "Oops! Try again !", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Oops! Try again !", Toast.LENGTH_SHORT).show();
 //
                 }
             }
         });
-
         //this function reset the game, give new shuffled word (created by Phong 10/4/2019)
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
