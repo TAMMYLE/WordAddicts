@@ -77,7 +77,7 @@ public class LettersStorage {
         char b[] = word2.toCharArray();
 
         boolean match = true;
-        if(a.length != b.length || a.length == 0 || b.length == 0)
+        if(a.length != b.length || a.length == 0 || b.length == 0   )
         {
             match = false;
             return match;
@@ -87,11 +87,11 @@ public class LettersStorage {
         {
             if(a[i] != b[i])
                 match = false;
+            return match;
 
         }
         return match;
     }
-
 
     //hint function added by Phong (16/4/2019)
     //parameters : givenWord is what the right word is
@@ -99,7 +99,6 @@ public class LettersStorage {
     //             coin that the player has
     //return : void
     // functionality: give hint accordingly
-
     public void giveHint(String givenWord, TextView hintField, int coin)
     {
         //if there is not enough coins, there will be no hint given
