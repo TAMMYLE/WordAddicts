@@ -34,6 +34,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,6 +116,8 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
             {
                 textViewInput.setText("");              //clear the input
                 renewWord();                            //call renew function
+
+                plusTime();
             }
         }
 
@@ -132,9 +135,28 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
 
 
     /**
-     * function setTimer: is used to initialize values for the timer
+     *   function plusTime: is used to give extra time whenever player gets correct word
+     */
+    private void plusTime(){
+        countDownTimer.cancel();
+
+        countDownTimer = new CountDownTimer(totalTimeCountInMilliseconds + 5000, 1) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
+    }
+
+    /**
+     *  function setTimer: is used to initialize values for the timer
      *
-     * const: time --> set the time to 10 which will be multiplied by 1000 to make the timer to 10 seconds*/
+     *  const: time --> set the time to 10 which will be multiplied by 1000 to make the timer to 10 seconds*/
     private void setTimer(){
 
         //initialize the time variable
@@ -173,6 +195,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
                 buttonStopTime.setVisibility(View.VISIBLE);
                 mProgressBar.setVisibility(View.VISIBLE);
                 mProgressBar1.setVisibility(View.GONE);
+                textViewInput.setText("");
 
             }
         }.start();
