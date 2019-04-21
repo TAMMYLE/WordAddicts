@@ -67,4 +67,6 @@
 - added Timer activity which is an upgrade level for the word game, including using progress circular bar [12 hours]
 - Timer activity will include setTimer function, startTimer function, stopTimer (will be considered)
 - added extra 2 drawable resources for those circular progress bars [2 hours]
-
+# Week 7, Sunday 21 April
+[Phong]
+- demo for TypeShift activity is created (unfinished) [6 hours]
