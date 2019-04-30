@@ -31,6 +31,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
 
     //declare the total time of the timer counting in milliseconds
     private long totalTimeCountInMilliseconds;
+    private long addedTime = 0;
 
 
 
@@ -43,7 +44,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
         //initialize views
 
         buttonStartTime = (Button) findViewById(R.id.button_timerview_start);
-        buttonStopTime = (Button) findViewById(R.id.button_timerview_stop);
+        //buttonStopTime = (Button) findViewById(R.id.button_timerview_stop);
         buttonCheck = (Button) findViewById(R.id.buttonCheck);
 
         textViewInput = (EditText)
@@ -52,7 +53,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
                 findViewById(R.id.shuffledWord)    ;
 
         buttonStartTime.setOnClickListener(this);
-        buttonStopTime.setOnClickListener(this);
+        //buttonStopTime.setOnClickListener(this);
         buttonCheck.setOnClickListener(this);
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressbar_timerview);
@@ -80,7 +81,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
 
             //set the visibility of all needed views
             buttonStartTime.setVisibility(View.INVISIBLE);
-            buttonStopTime.setVisibility(View.VISIBLE);
+            //buttonStopTime.setVisibility(View.VISIBLE);
             buttonCheck.setVisibility(View.VISIBLE);
             mProgressBar.setVisibility(View.INVISIBLE);
 
@@ -99,14 +100,11 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
             mProgressBar1.setVisibility(View.GONE);
             mProgressBar.setVisibility(View.VISIBLE);
             buttonStartTime.setVisibility(View.VISIBLE);
-            buttonStopTime.setVisibility(View.INVISIBLE);
+            //buttonStopTime.setVisibility(View.INVISIBLE);
             buttonCheck.setVisibility(View.VISIBLE);
 
             //if ID is a Check button
         } else if (v.getId() == R.id.buttonCheck){
-
-            //this toast for testing
-            Toast.makeText(getApplicationContext(), "Its run", Toast.LENGTH_SHORT).show();
 
             //retrieving user's input --> convert to string
             guessWord = textViewInput.getText().toString();
@@ -134,24 +132,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
-    /**
-     *   function plusTime: is used to give extra time whenever player gets correct word
-     */
-    private void plusTime(){
-        countDownTimer.cancel();
 
-        countDownTimer = new CountDownTimer(totalTimeCountInMilliseconds + 5000, 1) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-        }.start();
-    }
 
     /**
      *  function setTimer: is used to initialize values for the timer
@@ -178,12 +159,12 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
 
         //call renewWord function once the timer is on
         renewWord();
-        countDownTimer = new CountDownTimer(totalTimeCountInMilliseconds, 1) {
+        countDownTimer = new CountDownTimer(totalTimeCountInMilliseconds + addedTime, 50) {
             @Override
             public void onTick(long leftTimeInMilliseconds) {
 
                 // calculating the time by dividing it with 1000
-                long seconds = leftTimeInMilliseconds / 1000;
+                //long seconds = leftTimeInMilliseconds / 1000;
                 mProgressBar1.setProgress((int) (leftTimeInMilliseconds));
             }
             @Override
@@ -192,7 +173,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
                 //set up the visibility of all needed views
                 textViewInput.setVisibility(View.VISIBLE);
                 buttonStartTime.setVisibility(View.VISIBLE);
-                buttonStopTime.setVisibility(View.VISIBLE);
+                //buttonStopTime.setVisibility(View.VISIBLE);
                 mProgressBar.setVisibility(View.VISIBLE);
                 mProgressBar1.setVisibility(View.GONE);
                 textViewInput.setText("");
@@ -200,6 +181,35 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
             }
         }.start();
     }
+
+    /**
+     *   function plusTime: is used to give extra time whenever player gets correct word
+     */
+    private void plusTime(){
+        countDownTimer.cancel();
+
+        countDownTimer = new CountDownTimer(totalTimeCountInMilliseconds + 3000, 1) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+                // calculating the time by dividing it with 1000
+                mProgressBar1.setProgress((int) (millisUntilFinished));
+
+            }
+
+            @Override
+            public void onFinish() {
+                //set up the visibility of all needed views
+                textViewInput.setVisibility(View.VISIBLE);
+                buttonStartTime.setVisibility(View.VISIBLE);
+                //buttonStopTime.setVisibility(View.VISIBLE);
+                mProgressBar.setVisibility(View.VISIBLE);
+                mProgressBar1.setVisibility(View.GONE);
+                textViewInput.setText("");
+            }
+        }.start();
+    }
+
 
 
 }
