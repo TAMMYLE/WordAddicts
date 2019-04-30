@@ -74,3 +74,7 @@
 [Tammy]
 - Fixed an error: clear the input in Timer activity. Before: when time is up and user cannot get the right answer -> input was not cleared by itself. After: when time is up and user cannot get the right answer -> input is cleared  [30 mins]
 - Unfinished plusTime function in Timer activity
+
+# Week 8, Tuesday 30 April
+[Tammy]
+- Added plusTime function in Timer Activity [3 Hrs] 
