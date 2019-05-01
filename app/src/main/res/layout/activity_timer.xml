@@ -29,11 +29,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="126dp"
-        android:layout_marginRight="126dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginLeft="123dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginRight="123dp"
         android:gravity="center"
         android:text="Shuffled Word"
         android:textSize="30sp"
@@ -66,13 +66,13 @@
         android:id="@+id/buttonCheck"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="522dp"
         android:background="@android:color/transparent"
         android:text="CHECK"
         android:textSize="20sp"
         android:textStyle="italic"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="120dp"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/button_timerview_start"
@@ -86,20 +86,5 @@
         android:layout_marginBottom="60dp"/>
 
 
-    <Button
-        android:id="@+id/button_timerview_stop"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"
-        android:text="Stop !"
-        android:layout_marginTop="30dp"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        android:visibility="invisible"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:layout_marginBottom="20dp"
-        />
 
 </RelativeLayout>
