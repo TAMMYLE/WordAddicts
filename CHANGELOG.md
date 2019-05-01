@@ -78,3 +78,7 @@
 # Week 8, Tuesday 30 April
 [Tammy]
 - Added plusTime function in Timer Activity [3 Hrs] 
+# Week 8, Wednesday 1 May
+[PHONG] 
+- Fix the progress bar [2 hours]
+
