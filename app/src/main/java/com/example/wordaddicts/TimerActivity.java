@@ -4,6 +4,7 @@ package com.example.wordaddicts;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +28,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
 
     private LettersStorage availableWords = new LettersStorage();
 
-    private CountDownTimer countDownTimer;
+    private MyCountDown countDownTimer;
 
     //declare the total time of the timer counting in milliseconds
     private long totalTimeCountInMilliseconds;
@@ -118,7 +119,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
                 textViewInput.setText("");              //clear the input
                 renewWord();                            //call renew function
 
-//                plusTime();
+                plusTime();
             }
         }
 
@@ -162,27 +163,29 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
 
         //call renewWord function once the timer is on
         renewWord();
-        countDownTimer = new CountDownTimer(totalTimeCountInMilliseconds + addedTime, 50) {
-            @Override
-            public void onTick(long leftTimeInMilliseconds) {
-
-                // calculating the time by dividing it with 1000
-                //long seconds = leftTimeInMilliseconds / 1000;
-                mProgressBar1.setProgress((int) (leftTimeInMilliseconds));
-            }
-            @Override
-            public void onFinish() {
-
-                //set up the visibility of all needed views
-                textViewInput.setVisibility(View.VISIBLE);
-                buttonStartTime.setVisibility(View.VISIBLE);
-                //buttonStopTime.setVisibility(View.VISIBLE);
-                mProgressBar.setVisibility(View.VISIBLE);
-                mProgressBar1.setVisibility(View.GONE);
-                textViewInput.setText("");
-
-            }
-        }.start();
+//        countDownTimer = new CountDownTimer(totalTimeCountInMilliseconds + addedTime, 50) {
+//            @Override
+//            public void onTick(long leftTimeInMilliseconds) {
+//
+//                // calculating the time by dividing it with 1000
+//                //long seconds = leftTimeInMilliseconds / 1000;
+//                mProgressBar1.setProgress((int) (leftTimeInMilliseconds));
+//            }
+//            @Override
+//            public void onFinish() {
+//
+//                //set up the visibility of all needed views
+//                textViewInput.setVisibility(View.VISIBLE);
+//                buttonStartTime.setVisibility(View.VISIBLE);
+//                //buttonStopTime.setVisibility(View.VISIBLE);
+//                mProgressBar.setVisibility(View.VISIBLE);
+//                mProgressBar1.setVisibility(View.GONE);
+//                textViewInput.setText("");
+//
+//            }
+//        }.start();
+        countDownTimer = new MyCountDown(totalTimeCountInMilliseconds, 50);
+        countDownTimer.start();
     }
 
     /**
@@ -190,29 +193,34 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
      */
     private void plusTime(){
         countDownTimer.cancel();
+//        totalTimeCountInMilliseconds = totalTimeCountInMilliseconds + 3000;
+        countDownTimer = new MyCountDown(totalTimeCountInMilliseconds + 3000, 50);
+        countDownTimer.start();
 
-        countDownTimer = new CountDownTimer(totalTimeCountInMilliseconds + 3000, 1) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-                // calculating the time by dividing it with 1000
-                mProgressBar1.setProgress((int) (millisUntilFinished));
-
-            }
-
-            @Override
-            public void onFinish() {
-                //set up the visibility of all needed views
-                textViewInput.setVisibility(View.VISIBLE);
-                buttonStartTime.setVisibility(View.VISIBLE);
-                //buttonStopTime.setVisibility(View.VISIBLE);
-                mProgressBar.setVisibility(View.VISIBLE);
-                mProgressBar1.setVisibility(View.GONE);
-                textViewInput.setText("");
-            }
-        }.start();
     }
 
+    public class MyCountDown extends CountDownTimer {
+        public MyCountDown(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onTick(long l) {
+            totalTimeCountInMilliseconds = l;
+            mProgressBar1.setProgress((int) totalTimeCountInMilliseconds);
+        }
+
+        @Override
+        public void onFinish() {
+            //set up the visibility of all needed views
+            textViewInput.setVisibility(View.VISIBLE);
+            buttonStartTime.setVisibility(View.VISIBLE);
+            //buttonStopTime.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.VISIBLE);
+            mProgressBar1.setVisibility(View.GONE);
+            textViewInput.setText("");
+        }
+    }
 
 
 }
