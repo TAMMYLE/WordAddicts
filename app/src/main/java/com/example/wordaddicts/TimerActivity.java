@@ -51,10 +51,12 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
                 findViewById(R.id.textViewInput);
         textViewShuffle = (TextView)
                 findViewById(R.id.shuffledWord)    ;
+        textViewShuffle.setVisibility(View.INVISIBLE);//hiding the word that user needs to guess
 
         buttonStartTime.setOnClickListener(this);
         //buttonStopTime.setOnClickListener(this);
         buttonCheck.setOnClickListener(this);
+        buttonCheck.setVisibility(View.INVISIBLE);
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressbar_timerview);
         mProgressBar1 = (ProgressBar) findViewById(R.id.progressbar1_timerview);
@@ -84,6 +86,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
             //buttonStopTime.setVisibility(View.VISIBLE);
             buttonCheck.setVisibility(View.VISIBLE);
             mProgressBar.setVisibility(View.INVISIBLE);
+            textViewShuffle.setVisibility(View.VISIBLE);//show the word that user needs to guess
 
             //call startTimer function
             startTimer();
@@ -115,7 +118,7 @@ public class TimerActivity extends AppCompatActivity implements View.OnClickList
                 textViewInput.setText("");              //clear the input
                 renewWord();                            //call renew function
 
-                plusTime();
+//                plusTime();
             }
         }
 
