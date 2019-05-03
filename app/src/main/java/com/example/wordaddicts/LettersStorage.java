@@ -14,12 +14,30 @@ public class LettersStorage {
     public static final Random RANDOM = new Random();
     public static final String[] WORDS = {"LAPTOP", "SUNDAY", "GAME", "MARVELLOUS", "WHITE", "UPDATE", "FLOWER", "HOTEL", "TEACHER", "STRUCTURE", "YOGURT", "WONDER", "HOPE",
             "BEAUTIFUL", "UNUSUAL", "JUICE", "ORANGE", "STRAWBERRY", "CUP", "POP", "FLOP", "MOP", "UNIQUE"};
+    public static final String[] WORDSLEVEL1 = {"ACT", "AGE", "ACE", "ADD", "BAD", "BAR", "BED", "BIN", "CAR", "CAT","DIE", "DIG", "DOG", "DRY", "EGO", "FAR", "HER", "HIM", "HUB",
+    "LAY", "LAST", "LOW", "LIE", "MAD", "MAP", "ODD", "OFF", "PAD", "PAY", "PET", "PIG", "PEN", "PUT", "RED", "SAD", "SIN", "SIT", "SAY", "SEE", "WAX", "WIN", "YOU"};
 
+    public static final String[] WORDSLEVEL2 = {"JAZZ", "FUZZ", "BUZZ", "QUIZ", "JACK", "JUMP", "JUNK", "COZY", "JOKE", "JOWL", "JIVE", "QUIP", "BOXY", "DOZY", "FLUX", "JAWS", "JEEP",
+    "JOBS", "JUGS", "LAZY", "MAZE", "JURY", "QUAY", "BUCK", "FAUX", "JAGS", "YELL", "KICK", "LYNX", "QUID", "QUIN", "AQUA", "BECK", "BACK", "BUFF", "BUMP", "CUFF", "DOSE", "DOZE",
+    "EXAM", "EXPO", "JAIL", "JEAN", "JOIN", "JOLT", "MOCK", "PACK", "PICK", "PUFF", "PUMP", "QUIT", "VAMP", "BOMB", "BULK", "CAMP", "CLUB", "COMB", "DUCK", "HACK", "HAWK", "HOAX",
+    "JARS", "JETS", "LUCK", "WAVY", "WEEP", "WHIP", "WOMB", "ZERO", "BABY", "BANK", "CHEW", "CHIP", "CHOP", "COPY", "DECK", "DOCK", "KNOB", "KNOW", "NECK", "PINK", "WINK", "BARK",
+    "BIKE", "BLEW", "BOWL", "CALF", "CALM", "CLAP", "CLAW", "CLIP", "CUBE", "CUBS", "DUNK", "ENVY", "FAKE", "FIVE", "FLAP", "FLAW", "FLEW", "FLOW", "FORK","FOWL", "HYPE", "LAMB", "LAMP",
+    "MAKE","MARK", "MASK", "PEAK", "PLUG", "PORK", "PUBS", "ROCK", "RACK", "SICK", "SKIP", "SOCK", "WEAK", "WEEK", "WOLF", "ROSE", "BODY", "BUSH", "BUSY", "CABS", "COME", "CAME",
+    "CRAB", "CRAP", "CREW", "CROP", "EGGS", "FACE", "FACT", "FAME", "FLAG", "FORM", "FUND", "FURY", "GIVE", "GEEK", "GLOW", "GUMS", "HIGH", "HIVE", "HIKE", "HOOK", "MANY", "MICE"};
 
+    public static final String[] WORDSLEVEL3 = {"JAZZY", "FUZZY", "MUZZY", "FIZZY", "DIZZY", "PIZZA", "QUICK", "ZAPPY", "ZIPPY", "JACKS", "JUMPS", "JERKY", "JUICY", "CRAZY", "FIELD",
+    "BLAZE", "CHUCK", "JAPAN", "JELLY", "JERKS", "JOKER", "JOKES", "JUDGE", "JUICE", "CHECK", "CHICK", "ENJOY", "EJECT", "FROZE", "JEEPS", "JOLTY", "MAJOR", "MAZES", "PICKY", "PUPPY",
+    "QUERY", "QUILL", "UNBOX", "WACKY", "ZEBRA", "BLOCK", "BLACK", "BOXED", "BUCKS", "CHAMP", "CHIMP", "CHEVY", "CHUNK", "CLICK", "CLOCK", "CLUMP", "COMFY", "DOZEN", "DUCK", "EQUAL",
+    "HUBBY", "INBOX", "JELLS", "KICKS", "LUCKY", "MIXED", "MOMMY", "POPPY", "QUEEN", "QUILT", "SQUAD", "SQUID", "YUMMY", "BOXER", "BOXES", "BRICK", "CHALK", "CHEWY", "CLIMB", "CRACK",
+    "CURVY", "EXACT", "EXAMS", "FOXES", "HAPPY", "HIPPY", "HOBBY", "JADES", "JEANS", "JOINT", "JOLTS", "MILKY", "PACKS", "QUIET", "QUOTE", "REMIX", "SAVVY", "SMASH", "TOXIC", "WRECK",
+    "ZONES", "BAGGY", "BENCH", "BICEP", "BLANK", "BLINK", "BOMBS", "BULKS", "CHEEK", "COMBO", "COUCH", "DUCKS", "FANCY", "FINCH", "FLAWY", "FOGGY", "HACKS", "HAWKS", "MARVY", "NAPPY",
+    "PEAKY", "PERKY", "SEIZE", "SIZES", "SMOKY", "SPUNK", "TACKY", "THUMB", "TUMMY", "VODKA", "WAVEY", "WIGGY", "AWFUL", "BAKED", "BANKS", "BEACH", "BEEFY", "BLOWN", "BUDDY", "BULLY",
+    "CATCH", "CHARM", "CHEAP", "CHIPS", "CIVIL", "CLERK", "CLOAK", "COACH", "COUGH", "DETOX", "EMPTY", "FETCH", "FIFTY", "FIFTH", "FLAME", "FUNNY", "HEAVY", "HUNKS", "KNIFE", "MAGIC",
+    };
     /**
      randomWord:
 
-     function that choose a random word from an array of words above
+     function that choose a Random word from an array of words above
 
      Returns:
      return the pseudorandom word
@@ -43,6 +61,10 @@ public class LettersStorage {
      then, shuffling the word
 
      */
+    //randomWord function for specific levels
+    public static String randomWordLevel1() {return WORDSLEVEL1[RANDOM.nextInt(WORDSLEVEL1.length)];}
+    public static String randomWordLevel2() {return WORDSLEVEL2[RANDOM.nextInt(WORDSLEVEL2.length)];}
+    public static String randomWordLevel3() {return WORDSLEVEL3[RANDOM.nextInt(WORDSLEVEL3.length)];}
 
     public static String shuffleWord(String word) {
         if (word != null && !"".equals(word)){
