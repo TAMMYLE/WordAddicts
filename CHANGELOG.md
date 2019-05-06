@@ -93,3 +93,9 @@
 - update one more level on letterStorage class [0.5 hour]
 - fix the playing error on beginActivity class [1 hour]
 
+# Week 9, Mon 6 May
+
+[PHONG]
+
+- added coins and buyTime function for TimerActivity[3 hours]
+- added TimerHighScore activity to store high score when user plays the Speed Mode [2 hours]
