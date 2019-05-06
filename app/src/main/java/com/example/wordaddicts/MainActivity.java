@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     //declare variable for score . <Tammy Le - 15/4/2019>
     int score;
 
-    public int coin = 500; //added a coin integer <Phong 16/4/2019>
+    public static int coin = 500; //added a coin integer <Phong 16/4/2019>
     EditText textInput;
     Button checkButton, resetButton, hintButton;
     TextView result, hint;
@@ -54,28 +54,7 @@ public class MainActivity extends AppCompatActivity {
         shuffedWord = availableWords.shuffleWord(givenWord);
         shuffedLetters.setText(shuffedWord);// display that shuffeld word
 
-//        //this function checks if the word match when ever the user click check button (created by Phong 9/4/2019)
-//        checkButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                guessWord = textInput.getText().toString();
-//                //display a message according to the result
-//                if(availableWords.compareWords(givenWord, guessWord))
-//                {                                       //Added by Tammy Le, 15/4/2019
-//                    score += 10;                        //if the answer is correct, score plus ten
-//                    result.setText("Score: " + score);  //set the Score field with extra score
-//                    textInput.setText("");              //clear the input
-//                    renewWord();                        //renew the given word
-////
-//                }
-//                else
-//                {
-//                    result.setText("Score" + score);
-//                    //Toast.makeText(getApplicationContext(), "Oops! Try again !", Toast.LENGTH_SHORT).show();
-////
-//                }
-//            }
-//        });
+
 
 
         //this function checks if the word match when ever the user click check button (created by Phong 9/4/2019)
@@ -140,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "You have got all the hints", Toast.LENGTH_SHORT).show();
                 }
                 //pop up a message if player doesn't have enough coins
-                if(coin <= 100)
+                if(coin < 100)
                 {
                     Toast.makeText(getApplicationContext(), "You don't have enough coin to buy hint", Toast.LENGTH_SHORT).show();
                 }
