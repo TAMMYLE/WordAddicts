@@ -85,6 +85,11 @@
 [Tammy]
 - BeginActivity is initialized with video in background - video needs to be fixed[2 hours]
 - Updated checkButton with hiding soft keyboard function [30 mins]
+
 [PHONG]
 -update more levels on letterStorage class [2 hours]
+# Week 8, Sat 4 May
+[PHONG]
+- update one more level on letterStorage class [0.5 hour]
+- fix the playing error on beginActivity class [1 hour]
 
