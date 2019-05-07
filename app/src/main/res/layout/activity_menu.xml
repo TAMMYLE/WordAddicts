@@ -16,11 +16,11 @@
         >
 
         <ImageView
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
             android:padding="10dp"
-            android:background="@drawable/circlebackgroundlightgray"
-            android:src="@drawable/wordaddictslogotransparent"
+            android:src="@drawable/wordaddictslogotrimmedtransparent"
+
             />
 
     </LinearLayout>
@@ -50,7 +50,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:src="@drawable/ic_av_timer_black_24dp"
-                    android:background="@drawable/circlebackgroundclay"
+                    android:background="@drawable/circlebackgroundmediumgreen"
                     android:padding="10dp"
                     />
 
@@ -59,8 +59,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Speed"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_bold" />
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
@@ -71,6 +72,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Test how fast your brain is"
+                    app:fontFamily="@font/cormorant_garamond_semibold"
                     android:padding="10dp"
                     android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
@@ -95,7 +97,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:src="@drawable/ic_border_color_black_24dp"
-                    android:background="@drawable/circlebackgroundforest"
+                    android:background="@drawable/circlebackgrounddarknavy"
                     android:padding="10dp"
                     />
 
@@ -104,8 +106,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Classic"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_bold" />
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
@@ -116,6 +119,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="See the beauty of vocab in classic way"
+                    app:fontFamily="@font/cormorant_garamond_semibold"
                     android:padding="10dp"
                     android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
@@ -149,7 +153,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:src="@drawable/ic_format_list_numbered_black_24dp"
-                    android:background="@drawable/circlebackgroundred"
+                    android:background="@drawable/circlebackgroundlightgreen"
                     android:padding="10dp"
                     />
 
@@ -158,8 +162,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="High Score"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_bold" />
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
@@ -170,6 +175,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="High score for speed mode"
+                    app:fontFamily="@font/cormorant_garamond_semibold"
                     android:padding="10dp"
                     android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
@@ -194,7 +200,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:src="@drawable/ic_shopping_cart_black_24dp"
-                    android:background="@drawable/circlebackgroundgreen"
+                    android:background="@drawable/circlebackgroundbluegreen"
                     android:padding="10dp"
                     />
 
@@ -203,8 +209,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Shop"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_bold" />
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
@@ -215,6 +222,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Shop various support package here"
+                    app:fontFamily="@font/cormorant_garamond_semibold"
                     android:padding="10dp"
                     android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>

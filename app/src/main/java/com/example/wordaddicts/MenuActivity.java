@@ -46,7 +46,14 @@ public class MenuActivity extends AppCompatActivity {
         highScoreCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openHighScoreActivity();
+                openHighScoreListActivity();
+            }
+        });
+
+        shopCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openShopActivity();
             }
         });
     }
@@ -61,9 +68,15 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TimerActivity.class);
         startActivity(intent);
     }
-    public void openHighScoreActivity()
+    public void openHighScoreListActivity()
     {
         Intent intent = new Intent(this, HighScoreListActivity.class);
+        startActivity(intent);
+    }
+
+    public void openShopActivity()
+    {
+        Intent intent = new Intent(this, ShopActivity.class);
         startActivity(intent);
     }
 }

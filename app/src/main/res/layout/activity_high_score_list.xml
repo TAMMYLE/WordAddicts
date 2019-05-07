@@ -15,12 +15,21 @@
         android:gravity="center"
         >
 
-        <ImageView
-            android:layout_width="200dp"
+        <!--<ImageView-->
+            <!--android:layout_width="200dp"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:padding="30dp"-->
+            <!--android:background="@drawable/circlebackgroundred"-->
+            <!--android:src="@drawable/ic_format_list_numbered_black_24dp"-->
+            <!--/>-->
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:padding="30dp"
-            android:background="@drawable/circlebackgroundred"
-            android:src="@drawable/ic_format_list_numbered_black_24dp"
+            android:fontFamily="@font/cormorant_garamond_bold"
+            android:text="HIGH SCORE"
+            android:gravity="center"
+            android:textSize="40dp"
+
             />
 
     </LinearLayout>
@@ -55,7 +64,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@drawable/ic_av_timer_black_24dp"
-                    android:background="@drawable/circlebackgroundclay"
+                    android:background="@drawable/circlebackgroundmediumgreen"
                     android:paddingLeft="40dp"
                     android:padding="20dp"
                     />
@@ -71,7 +80,8 @@
 
                         android:text="Speed"
                         android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:fontFamily="@font/cormorant_garamond_semibold"/>
                     <View
                         android:layout_width="1dp"
                         android:layout_height="1dp"
@@ -82,7 +92,8 @@
                         android:layout_height="wrap_content"
 
                         android:textSize="18dp"
-                        android:text="High Score in the speed mode"/>
+                        android:text="High Score in the speed mode"
+                        app:fontFamily="@font/cormorant_garamond_semibold"/>
 
                 </LinearLayout>
 
@@ -124,7 +135,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@drawable/ic_border_color_black_24dp"
-                    android:background="@drawable/circlebackgroundforest"
+                    android:background="@drawable/circlebackgrounddarknavy"
                     android:paddingLeft="40dp"
                     android:padding="20dp"
                     />
@@ -140,7 +151,8 @@
 
                         android:text="Classic"
                         android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:fontFamily="@font/cormorant_garamond_semibold"/>
                     <View
                         android:layout_width="1dp"
                         android:layout_height="1dp"
@@ -151,7 +163,8 @@
                         android:layout_height="wrap_content"
 
                         android:textSize="18dp"
-                        android:text="High Score in the classic mode"/>
+                        android:text="High Score in the classic mode"
+                        app:fontFamily="@font/cormorant_garamond_semibold"/>
 
                 </LinearLayout>
 

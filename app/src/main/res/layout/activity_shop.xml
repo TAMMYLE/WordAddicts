@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TimerHighScoreActivity"
+    tools:context=".ShopActivity"
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@color/backgroundcolor">
+
     ///logo
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,158 +20,20 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:padding="30dp"
-            android:background="@drawable/circlebackgroundclay"
-            android:src="@drawable/ic_av_timer_black_24dp"
+            android:background="@drawable/circlebackgroundgreen"
+            android:src="@drawable/ic_shopping_cart_black_24dp"
             />
 
     </LinearLayout>
     //the menu starts
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:clipToPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.CardView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="10dp"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="1dp"
-                    android:background="@color/cardview_light_background"
-                    android:layout_margin="2dp"/>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/ic_star_black_24dp"
-                    android:background="@drawable/circlebackgroundforest"
-                    android:paddingLeft="40dp"
-                    android:padding="20dp"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="CURRENT"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:fontFamily="@font/cormorant_garamond_semibold"/>
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="1dp"
-                        android:background="@color/cardview_light_background"
-                        android:layout_margin="2dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:textSize="18dp"
-                        app:fontFamily="@font/cormorant_garamond_semibold"
-
-                        android:id="@+id/speedCurrent"/>
-
-                </LinearLayout>
-
-                android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:clipToPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.CardView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/speedHighScoreCard">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="1dp"
-                    android:background="@color/cardview_light_background"
-                    android:layout_margin="2dp"/>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/ic_trophy"
-                    android:background="@drawable/circlebackgroundgold"
-                    android:paddingLeft="40dp"
-                    android:padding="20dp"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="GOLD"
-                        android:textSize="20sp"
-                        app:fontFamily="@font/cormorant_garamond_semibold"
-                        android:textStyle="bold" />
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="1dp"
-                        android:background="@color/cardview_light_background"
-                        android:layout_margin="2dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:textSize="18dp"
-                        app:fontFamily="@font/cormorant_garamond_semibold"
-
-                        android:id="@+id/speedBest1"/>
-
-                </LinearLayout>
-
-                android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-
-    </LinearLayout>
-
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -201,42 +64,30 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/ic_trophy"
-                    android:background="@drawable/circlebackgroundsilver"
+                    android:src="@drawable/coins"
+                    android:background="@drawable/circlebackgroundlightgray"
                     android:paddingLeft="40dp"
                     android:padding="20dp"
                     />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        android:text="SILVER"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:fontFamily="@font/cormorant_garamond_semibold"/>
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="1dp"
-                        android:background="@color/cardview_light_background"
-                        android:layout_margin="2dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-                        android:textSize="18dp"
-                        app:fontFamily="@font/cormorant_garamond_semibold"
+                    android:padding="20dp"
+                    android:text="BASIC PACK"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_semibold" />
 
-                        android:id="@+id/speedBest2"/>
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/squareyellow"
+                    android:text="4.99$"
+                    android:gravity="center"/>
 
-                </LinearLayout>
 
-                android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -273,47 +124,218 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/ic_trophy"
-                    android:background="@drawable/circlebackgroundbronze"
+                    android:src="@drawable/coins"
+                    android:background="@drawable/circlebackgroundlightgray"
                     android:paddingLeft="40dp"
                     android:padding="20dp"
                     />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        android:text="BRONZE"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:fontFamily="@font/cormorant_garamond_semibold"/>
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="1dp"
-                        android:background="@color/cardview_light_background"
-                        android:layout_margin="2dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-                        android:textSize="18dp"
-                        app:fontFamily="@font/cormorant_garamond_semibold"
+                    android:padding="20dp"
+                    android:text="BASIC PACK"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_semibold" />
 
-                        android:id="@+id/speedBest3"/>
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/squareyellow"
+                    android:text="4.99$"
+                    android:gravity="center"/>
 
-                </LinearLayout>
 
-                android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
 
     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_margin="2dp"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/coins"
+                    android:background="@drawable/circlebackgroundlightgray"
+                    android:paddingLeft="40dp"
+                    android:padding="20dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:padding="20dp"
+                    android:text="BASIC PACK"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_semibold" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/squareyellow"
+                    android:text="4.99$"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_margin="2dp"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/coins"
+                    android:background="@drawable/circlebackgroundlightgray"
+                    android:paddingLeft="40dp"
+                    android:padding="20dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:padding="20dp"
+                    android:text="BASIC PACK"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_semibold" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/squareyellow"
+                    android:text="4.99$"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_margin="2dp"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/coins"
+                    android:background="@drawable/circlebackgroundlightgray"
+                    android:paddingLeft="40dp"
+                    android:padding="20dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:padding="20dp"
+                    android:text="BASIC PACK"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_semibold" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/squareyellow"
+                    android:text="4.99$"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+</ScrollView>
 
 
 

@@ -14,6 +14,13 @@
     <color name="colorEarthYellow">#f9b41e</color>
     <color name="colorAverageBlue">#B8DECE</color>
     <color name="colorWhite">#FDFEFE</color>
+    <color name="colorPinkOrange">#F39569</color>
+    <color name="colorLightPink">#E7B69C</color>
+    <color name="colorBrightOrange">#F64F12</color>
+    <color name="colorMediumGreen">#108A72</color>
+    <color name="colorDarkNavy">#12104B</color>
+    <color name="colorLightGreen">#7AC7B8</color>
+    <color name="colorBlueGreen">#5A8799</color>
 
     //added by Phong 7/5/2019
     <color name="backgroundcolor">#fcfcfc</color>
@@ -29,5 +36,9 @@
     <color name="clay">#f78833</color>
     <color name="green">#419154</color>
     <color name="forest">#2d7e87</color>
-    <color name="red">#ed3131</color>
+    <color name="red">#fb0f0e</color>
+    <color name="gold">#f8d22e</color>
+    <color name="silver">#b9c3c9</color>
+    <color name="bronze">#f89a10</color>
+    <color name="navy">#283152</color>
 </resources>
