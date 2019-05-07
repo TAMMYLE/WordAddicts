@@ -30,11 +30,10 @@ public class BeginActivity extends AppCompatActivity {
         myVideoView = (VideoView) findViewById(R.id.bgVideoView);
 
         //Build video UI
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.backgroundvid);
+        Uri uri = Uri.parse("android.resources://"+getPackageName()+"/"+R.raw.backgroundvid1);
 
         //Set the new Uri to Video View
         myVideoView.setVideoURI(uri);
-        myVideoView.requestFocus();//added by Phong
         //Start the VideoView
         myVideoView.start();
 
