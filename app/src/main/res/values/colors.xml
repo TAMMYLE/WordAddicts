@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Added by Tammy Le, 10/4/2019-->
-    <color name="colorPrimary">#015eF4</color>
-    <color name="colorPrimaryDark">#070D29</color>
+    <!--<color name="colorPrimary">#015eF4</color>-->
+    <!--<color name="colorPrimaryDark">#070D29</color>-->
+    <color name="colorPrimary">#efece1</color>
+    <color name="colorPrimaryDark">#42413e</color>
     <color name="colorAccent">#e9FeFF</color>
     <color name="colorBlueJeans">#0489FF</color>
     <color name="colorEarthOrange">#E2783E</color>
@@ -12,4 +14,20 @@
     <color name="colorEarthYellow">#f9b41e</color>
     <color name="colorAverageBlue">#B8DECE</color>
     <color name="colorWhite">#FDFEFE</color>
+
+    //added by Phong 7/5/2019
+    <color name="backgroundcolor">#fcfcfc</color>
+    <!--<color name="backgroundcolor">#515254</color>-->
+    <color name="lightgray">#ededed</color>
+    <!--<color name="deeppurple">#7c4dff</color>-->
+    <!--<color name="yello">#ffb300</color>-->
+    <!--<color name="green">#00bfa5</color>-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+    <!--<color name="darkblue">#23283a</color>-->
+    <!--<color name="testcolorblue">#152b38</color>-->
+    <!--<color name="pink">#fe104d</color>-->
+    <color name="clay">#f78833</color>
+    <color name="green">#419154</color>
+    <color name="forest">#2d7e87</color>
+    <color name="red">#ed3131</color>
 </resources>

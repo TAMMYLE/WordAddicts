@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".HighScoreListActivity"></activity>
+        <activity android:name=".TimerHighScoreActivity" />
+        <activity android:name=".SplashActivity" />
         <activity android:name=".HighScoreActivity" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".BeginActivity" />
         <activity android:name=".TimerActivity" />
-        <activity android:name=".BeginActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
