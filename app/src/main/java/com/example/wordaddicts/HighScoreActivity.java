@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class HighScoreActivity extends AppCompatActivity {
 
 
-    TextView wordscore;
+    private TextView wordscore, currentScore, best1TextView, best2TextView, best3TextView;
 
     int latestScore;
     int best1, best2, best3;
@@ -20,7 +20,11 @@ public class HighScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
 
-        wordscore = (TextView) findViewById(R.id.wordscore);
+//        wordscore = (TextView) findViewById(R.id.wordscore);
+        best1TextView = (TextView) findViewById(R.id.classicBest1);
+        best2TextView = (TextView) findViewById(R.id.classicBest2);
+        best3TextView = (TextView) findViewById(R.id.classicBest3);
+        currentScore = (TextView) findViewById(R.id.classicCurrent);
 
         // this part is to load old scores from main
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
@@ -67,10 +71,18 @@ public class HighScoreActivity extends AppCompatActivity {
         }
 
         //create textlines of highest scores
-        wordscore.setText("LATEST SCORE: " + latestScore + "\n" +
-        "BEST 1: " + best1 + "\n" +
-                "BEST 2: " + best2 + "\n" +
-                        "BEST 3: " + best3 );
+//        wordscore.setText("LATEST SCORE: " + latestScore + "\n" +
+////        "BEST 1: " + best1 + "\n" +
+////                "BEST 2: " + best2 + "\n" +
+////                        "BEST 3: " + best3 );
+
+
+
+        currentScore.setText("Your current score is " + latestScore);
+
+        best1TextView.setText("Your best score is " + best1);
+        best2TextView.setText("Your second best score is " + best2);
+        best3TextView.setText("Your third best score is " + best3);
 
     }
 

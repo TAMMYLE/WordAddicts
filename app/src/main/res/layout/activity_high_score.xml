@@ -1,31 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Created by Tammy Le, 15/4/2019-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HighScoreActivity">
-
-    <TextView
-        android:id="@+id/highscorelabel"
+    tools:context=".HighScoreActivity"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/backgroundcolor">
+    ///logo
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="HIGH SCORES"
-        android:textSize="40sp"
-        android:textColor="@color/colorDarkJeans"
-        />
+        android:gravity="center"
+        >
 
-    <TextView
-        android:id="@+id/wordscore"
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:padding="30dp"
+            android:background="@drawable/circlebackgroundforest"
+            android:src="@drawable/ic_border_color_black_24dp"
+            />
+
+    </LinearLayout>
+    //the menu starts
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:textSize="40sp"
-        android:textColor="@color/colorEarthYellow"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
 
-        />
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_margin="2dp"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_star_black_24dp"
+                    android:background="@drawable/circlebackgroundforest"
+                    android:paddingLeft="40dp"
+                    android:padding="20dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="CURRENT"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/cormorant_garamond_semibold" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        android:background="@color/cardview_light_background"
+                        android:layout_margin="2dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="18dp"
+                        app:fontFamily="@font/cormorant_garamond_semibold"
+
+                        android:id="@+id/classicCurrent"/>
+
+                </LinearLayout>
+
+                android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/speedHighScoreCard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_margin="2dp"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_trophy"
+                    android:background="@drawable/circlebackgroundgold"
+                    android:paddingLeft="40dp"
+                    android:padding="20dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="GOLD"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/cormorant_garamond_semibold" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        android:background="@color/cardview_light_background"
+                        android:layout_margin="2dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="18dp"
+                        app:fontFamily="@font/cormorant_garamond_semibold"
+
+                        android:id="@+id/classicBest1"/>
+
+                </LinearLayout>
+
+                android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_margin="2dp"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_trophy"
+                    android:background="@drawable/circlebackgroundsilver"
+                    android:paddingLeft="40dp"
+                    android:padding="20dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="SILVER"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/cormorant_garamond_semibold" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        android:background="@color/cardview_light_background"
+                        android:layout_margin="2dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="18dp"
+                        app:fontFamily="@font/cormorant_garamond_semibold"
+
+                        android:id="@+id/classicBest2"/>
+
+                </LinearLayout>
+
+                android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_margin="2dp"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_trophy"
+                    android:background="@drawable/circlebackgroundbronze"
+                    android:paddingLeft="40dp"
+                    android:padding="20dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="BRONZE"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/cormorant_garamond_semibold" />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        android:background="@color/cardview_light_background"
+                        android:layout_margin="2dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="18dp"
+                        app:fontFamily="@font/cormorant_garamond_semibold"
+
+                        android:id="@+id/classicBest3"/>
+
+                </LinearLayout>
+
+                android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+
+
+
 
 </LinearLayout>

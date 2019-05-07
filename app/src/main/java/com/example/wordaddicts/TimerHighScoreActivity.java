@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class TimerHighScoreActivity extends AppCompatActivity {
 
-    TextView timerScore;
+    private TextView timerScore, currentTextView, best1TextView, best2TextView, best3TextView;
 
     int latestScore;
     int best1, best2, best3;
@@ -17,9 +17,13 @@ public class TimerHighScoreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_high_score);
+        setContentView(R.layout.activity_timer_high_score);
 
-        timerScore = (TextView) findViewById(R.id.wordscore);
+//        timerScore = (TextView) findViewById(R.id.wordscore);
+        currentTextView = (TextView) findViewById(R.id.speedCurrent);
+        best1TextView= (TextView) findViewById(R.id.speedBest1);
+        best2TextView= (TextView) findViewById(R.id.speedBest2);
+        best3TextView = (TextView) findViewById(R.id.speedBest3);
 
         // this part is to load old scores from main
         SharedPreferences preferences = getSharedPreferences("TIME_PREFS", 0);
@@ -66,10 +70,15 @@ public class TimerHighScoreActivity extends AppCompatActivity {
         }
 
         //create textlines of highest scores
-        timerScore.setText("LATEST SCORE: " + latestScore + "\n" +
-                "BEST 1: " + best1 + "\n" +
-                "BEST 2: " + best2 + "\n" +
-                "BEST 3: " + best3 );
+//        timerScore.setText("LATEST SCORE: " + latestScore + "\n" +
+//                "BEST 1: " + best1 + "\n" +
+//                "BEST 2: " + best2 + "\n" +
+//                "BEST 3: " + best3 );
+
+        currentTextView.setText("Your current score is " + latestScore);
+        best1TextView.setText("Your best score is " + best1);
+        best2TextView.setText("Your second best score is " + best2);
+        best3TextView.setText("Your third best score is " + best3);
 
     }
 

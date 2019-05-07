@@ -103,4 +103,5 @@
 
 [PHONG]
 - design menuActivity[2 hours]
+- design the shop activity [2 hours]
 
