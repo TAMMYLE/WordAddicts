@@ -99,3 +99,8 @@
 
 - added coins and buyTime function for TimerActivity[3 hours]
 - added TimerHighScore activity to store high score when user plays the Speed Mode [2 hours]
+# Week 9, Tues 7 May
+
+[PHONG]
+- design menuActivity[2 hours]
+
