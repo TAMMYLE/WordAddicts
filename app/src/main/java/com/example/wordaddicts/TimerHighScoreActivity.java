@@ -14,6 +14,8 @@ public class TimerHighScoreActivity extends AppCompatActivity {
     int latestScore;
     int best1, best2, best3;
 
+    TextView highScoreSpeedCoin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,9 @@ public class TimerHighScoreActivity extends AppCompatActivity {
         best1TextView= (TextView) findViewById(R.id.speedBest1);
         best2TextView= (TextView) findViewById(R.id.speedBest2);
         best3TextView = (TextView) findViewById(R.id.speedBest3);
+
+        highScoreSpeedCoin = (TextView) findViewById(R.id.highscoreSpeedCoin);
+        highScoreSpeedCoin.setText("" + MainActivity.coin);
 
         // this part is to load old scores from main
         SharedPreferences preferences = getSharedPreferences("TIME_PREFS", 0);
