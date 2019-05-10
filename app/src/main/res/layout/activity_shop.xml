@@ -9,6 +9,42 @@
     android:padding="10dp"
     android:background="@color/backgroundcolor">
 
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left">
+            <ImageView
+                android:id="@+id/infobutton"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/info"
+                android:gravity="center_horizontal"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/coins"
+                android:gravity="center_horizontal"
+                />
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/aboutCoin"
+                android:gravity="center_horizontal"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
     ///logo
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +86,6 @@
         <android.support.v7.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="10dp"
@@ -66,11 +101,11 @@
                     android:layout_width="10dp"
                     android:layout_height="1dp"
                     android:background="@color/cardview_light_background"
-                    android:layout_margin="2dp"/>
+                    android:layout_margin="2dp" />
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/coins"
+                    android:src="@drawable/coin"
                     android:background="@drawable/circlebackgroundlightgray"
                     android:paddingLeft="40dp"
                     android:padding="20dp"
@@ -81,7 +116,7 @@
                     android:layout_height="wrap_content"
 
                     android:padding="20dp"
-                    android:text="BASIC PACK"
+                    android:text="   2X COINS  "
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/cormorant_garamond_semibold" />
@@ -150,7 +185,125 @@
                     android:layout_width="80dp"
                     android:layout_height="40dp"
                     android:background="@drawable/squareyellow"
-                    android:text="4.99$"
+                    android:text="2.99$"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_margin="2dp"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/triplestack"
+                    android:background="@drawable/circlebackgroundlightgray"
+                    android:paddingLeft="40dp"
+                    android:padding="20dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:padding="20dp"
+                    android:text="VALUE PACK"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_semibold" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/squareyellow"
+                    android:text="7.99$"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_margin="2dp"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/valuestack"
+                    android:background="@drawable/circlebackgroundlightgray"
+                    android:paddingLeft="40dp"
+                    android:padding="20dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:padding="20dp"
+                    android:text="MEGA PACK"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_semibold" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/squareyellow"
+                    android:text="14.99$"
                     android:gravity="center"/>
 
 
@@ -200,7 +353,7 @@
                     android:layout_height="wrap_content"
 
                     android:padding="20dp"
-                    android:text="BASIC PACK"
+                    android:text="SUPER PACK"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/cormorant_garamond_semibold" />
@@ -209,125 +362,7 @@
                     android:layout_width="80dp"
                     android:layout_height="40dp"
                     android:background="@drawable/squareyellow"
-                    android:text="4.99$"
-                    android:gravity="center"/>
-
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:clipToPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.CardView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="10dp"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="1dp"
-                    android:background="@color/cardview_light_background"
-                    android:layout_margin="2dp"/>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/coins"
-                    android:background="@drawable/circlebackgroundlightgray"
-                    android:paddingLeft="40dp"
-                    android:padding="20dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:padding="20dp"
-                    android:text="BASIC PACK"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/cormorant_garamond_semibold" />
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/squareyellow"
-                    android:text="4.99$"
-                    android:gravity="center"/>
-
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:clipToPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.CardView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="10dp"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="1dp"
-                    android:background="@color/cardview_light_background"
-                    android:layout_margin="2dp"/>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/coins"
-                    android:background="@drawable/circlebackgroundlightgray"
-                    android:paddingLeft="40dp"
-                    android:padding="20dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:padding="20dp"
-                    android:text="BASIC PACK"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/cormorant_garamond_semibold" />
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/squareyellow"
-                    android:text="4.99$"
+                    android:text="46.99$"
                     android:gravity="center"/>
 
 

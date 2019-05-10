@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Created by Tammy Le, 7/5/2019  -->
+<!--  Inspired by Priya - StakeOverFlow  -->
+<!--  https://stackoverflow.com/questions/15401658/vibration-of-edittext-in-android/15401733#15401733 -->
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="0"
+    android:toXDelta="10"
+    android:duration="500"
+    android:interpolator="@anim/cycle_7" />

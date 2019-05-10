@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ShopActivity"></activity>
+        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".ShopActivity" />
         <activity android:name=".HighScoreListActivity" />
         <activity android:name=".TimerHighScoreActivity" />
-        <activity android:name=".SplashActivity" />
         <activity android:name=".HighScoreActivity" />
-        <activity android:name=".BeginActivity" />
+        <activity android:name=".MenuActivity" />
         <activity android:name=".TimerActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".MenuActivity">
+        <activity android:name=".BeginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
