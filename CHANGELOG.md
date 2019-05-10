@@ -112,10 +112,10 @@
 
 # Week 9, Friday 10 May
 [Tammy]
-Added vibration for wrong words in TimerActivity
-Created AboutActivity which tells information about the project and us
-Added some basic sounds to some buttons
-Re-design the ShopActivity
+- Added vibration for wrong words in TimerActivity
+- Created AboutActivity which tells information about the project and us
+- Added some basic sounds to some buttons
+- Re-design the ShopActivity
 
 
 
