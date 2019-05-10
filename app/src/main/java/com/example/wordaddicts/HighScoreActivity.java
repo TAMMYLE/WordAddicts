@@ -14,6 +14,7 @@ public class HighScoreActivity extends AppCompatActivity {
 
     int latestScore;
     int best1, best2, best3;
+    TextView highScoreClassicCoin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,9 @@ public class HighScoreActivity extends AppCompatActivity {
         best2TextView = (TextView) findViewById(R.id.classicBest2);
         best3TextView = (TextView) findViewById(R.id.classicBest3);
         currentScore = (TextView) findViewById(R.id.classicCurrent);
+
+        highScoreClassicCoin = (TextView) findViewById(R.id.highscoreclassicCoin);
+        highScoreClassicCoin.setText("" + MainActivity.coin);
 
         // this part is to load old scores from main
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);

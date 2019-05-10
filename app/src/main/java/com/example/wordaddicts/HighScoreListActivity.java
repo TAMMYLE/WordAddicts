@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.TextView;
 
 public class HighScoreListActivity extends AppCompatActivity {
 
     CardView classicHighScoreCard, speedHighScoreCard;
+    TextView highScoreListCoinTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,9 @@ public class HighScoreListActivity extends AppCompatActivity {
 
         classicHighScoreCard = (CardView) findViewById(R.id.classicHighScoreCard);
         speedHighScoreCard = (CardView) findViewById(R.id.speedHighScoreCard);
+
+        highScoreListCoinTextView = (TextView) findViewById(R.id.highscorelistCoin);
+        highScoreListCoinTextView.setText("" + MainActivity.coin);
 
         classicHighScoreCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +36,7 @@ public class HighScoreListActivity extends AppCompatActivity {
                 openTimerHighScoreActivity();
             }
         });
+
     }
 
     public void openHighScoreActivity(){

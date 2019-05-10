@@ -13,18 +13,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:orientation="vertical"
         >
 
-        <!--<ImageView-->
-            <!--android:layout_width="200dp"-->
-            <!--android:layout_height="200dp"-->
-            <!--android:padding="30dp"-->
-            <!--android:background="@drawable/circlebackgroundred"-->
-            <!--android:src="@drawable/ic_format_list_numbered_black_24dp"-->
-            <!--/>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            android:gravity="right"
+            >
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/coins"
+                android:gravity="center_horizontal"
+                />
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/highscorelistCoin"
+                android:gravity="center_horizontal"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+
+            android:src="@drawable/highscore"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:fontFamily="@font/cormorant_garamond_bold"
             android:text="HIGH SCORE"
             android:gravity="center"
