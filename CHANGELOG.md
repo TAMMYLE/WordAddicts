@@ -103,4 +103,11 @@
 
 [PHONG]
 - design menuActivity[2 hours]
+- design the shop activity [2 hours]
+
+# Week 9, Wednesday 8/May [Henry]
+- Good progress. Glad to see it's getting closer. Final stretch now. 
+- Make sure you go over everything in the Grading Criteria super carefully, to ensure you meet each point.
+
+
 
