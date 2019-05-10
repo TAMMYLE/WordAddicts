@@ -109,5 +109,12 @@
 - Good progress. Glad to see it's getting closer. Final stretch now. 
 - Make sure you go over everything in the Grading Criteria super carefully, to ensure you meet each point.
 
+#Week 9, Friday 10 May
+Added vibration for wrong words in TimerActivity
+Created AboutActivity which tells information about the project and us
+Added some basic sounds to some buttons
+Re-design the ShopActivity
+
+
 
 
