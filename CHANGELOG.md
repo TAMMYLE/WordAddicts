@@ -117,6 +117,10 @@
 - Added some basic sounds to some buttons
 - Re-design the ShopActivity
 
+# Week 10, Monday 13 May
+[PHONG]
+
+- Design main activity and timer activity
 
 
 
