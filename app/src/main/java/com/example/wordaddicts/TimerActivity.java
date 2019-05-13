@@ -17,6 +17,8 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,12 +29,16 @@ public class TimerActivity extends AppCompatActivity{
     ProgressBar mProgressBar, mProgressBar1;
     int score;
 
+    private ImageView highScoreTimer;
+
     private Button buttonStartTime;
     private Button buttonCheck;
     private Button buttonBuyTime;
-    private Button buttonHighScore;
+
     private EditText textViewInput;
-    private TextView textViewShuffle, scoreTextView, coinTextView;
+    private TextView textViewShuffle, scoreTextView, timerCoin;
+
+    private LinearLayout timerShop;
 
     private String guessWord;          //what user put in
     private String givenWord;          // what word the game wants user to guess
@@ -60,7 +66,11 @@ public class TimerActivity extends AppCompatActivity{
         buttonBuyTime = (Button) findViewById(R.id.buyTimeButton);
         buttonBuyTime.setVisibility(View.INVISIBLE);// hide the button when the game has not started
 
-        buttonHighScore = (Button) findViewById(R.id.highScoreButton);
+
+
+        highScoreTimer = (ImageView) findViewById(R.id.highscoreTimer);
+
+
 
 
         textViewInput = (EditText)
@@ -76,9 +86,12 @@ public class TimerActivity extends AppCompatActivity{
         scoreTextView.setVisibility(View.INVISIBLE);// set the scoreTextView to be invisible until the game starts
         score = 0;//set the score to 0;
 
-        coinTextView = (TextView) findViewById(R.id.coinTextView);
-        coinTextView.setText("Coin: " + MainActivity.coin);
-        coinTextView.setVisibility(View.INVISIBLE);
+        timerCoin = (TextView) findViewById(R.id.timerCoin);
+        timerCoin.setText("" + MainActivity.coin);
+//        timerCoin.setVisibility(View.INVISIBLE);
+
+        timerShop = (LinearLayout) findViewById(R.id.timerShop);
+
 
 
 
@@ -97,7 +110,7 @@ public class TimerActivity extends AppCompatActivity{
                 mProgressBar.setVisibility(View.INVISIBLE);
                 textViewShuffle.setVisibility(View.VISIBLE);//show the word that user needs to guess
                 scoreTextView.setVisibility(View.VISIBLE);// show the score when the game start
-                coinTextView.setVisibility(View.VISIBLE);//show the coin when the game starts
+                timerCoin.setVisibility(View.VISIBLE);//show the coin when the game starts
                 buttonBuyTime.setVisibility(View.VISIBLE);// show the buyTime button when the game starts
                 textViewInput.setVisibility(View.VISIBLE);//show the textInput
 
@@ -174,7 +187,7 @@ public class TimerActivity extends AppCompatActivity{
                     MainActivity.coin = MainActivity.coin - 100;
 
                     plusTime();
-                    coinTextView.setText("Coin: " + MainActivity.coin);
+                    timerCoin.setText("" + MainActivity.coin);
                 }
                 else
                 {
@@ -183,10 +196,19 @@ public class TimerActivity extends AppCompatActivity{
             }
         });
         //navigate to the highScore activity when click
-        buttonHighScore.setOnClickListener(new View.OnClickListener() {
+        highScoreTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), TimerHighScoreActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        timerShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ShopActivity.class);
                 startActivity(intent);
                 finish();
             }

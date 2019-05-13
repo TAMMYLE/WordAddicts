@@ -15,8 +15,10 @@
         <activity android:name=".TimerHighScoreActivity" />
         <activity android:name=".HighScoreActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".TimerActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".TimerActivity"
+            android:windowSoftInputMode="adjustNothing"/>//avoid the soft keyboard from pushing the view up/>
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="adjustNothing"/>//avoid the soft keyboard from pushing the view up
         <activity android:name=".BeginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

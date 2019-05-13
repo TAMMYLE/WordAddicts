@@ -1,137 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--  Created by Tammy Le, 17/4/2019  -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TimerActivity"
+    android:orientation="vertical"
     android:fitsSystemWindows="true">
 
-    <ProgressBar
-        android:id="@+id/progressbar_timerview"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="260dp"
-        android:layout_height="260dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal|bottom"
-        android:indeterminate="false"
-        android:progressDrawable="@drawable/drawable_circle_dark" />
-
-    <TextView
-        android:id="@+id/shuffledWord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="123dp"
-        android:layout_marginLeft="123dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="123dp"
-        android:layout_marginRight="123dp"
-        android:gravity="center"
-        android:text="Shuffled Word"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/textViewInput"
-        android:layout_width="180dp"
-        android:layout_height="80dp"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <ProgressBar
-        android:id="@+id/progressbar1_timerview"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="260dp"
-        android:layout_height="260dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal|center"
-        android:indeterminate="false"
-        android:progressDrawable="@drawable/drawable_circle_light"
-        android:visibility="gone" />
-
-
-    <Button
-        android:id="@+id/buttonCheck"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="522dp"
-        android:background="@android:color/transparent"
-        android:text="CHECK"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        android:visibility="invisible" />
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        >
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="20dp"
+            android:gravity="left">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src= "@drawable/highscore"
+                android:id="@+id/highscoreTimer"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
 
+            android:id="@+id/timerShop"
+            >
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/coins"
+                android:gravity="center_horizontal"
+                />
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/timerCoin"
+                android:gravity="center_horizontal"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingBottom="20dp"
+        >
+        //check out button
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="left">
+
+            <Button
+                android:id="@+id/buttonCheck"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:text="Check"
+                android:background="@color/darkGreen"
+                android:textColor="@color/colorWhite"
+                android:fontFamily="@font/cormorant_garamond_bold"
+                />
+
+        </LinearLayout>
+
+        //score
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/scoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="Score: 0"
+                android:fontFamily="@font/cormorant_garamond_bold"
+                android:gravity="center"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+        //buy time button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity= "right">
+
+            <Button
+                android:id="@+id/buyTimeButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:background="@color/darkGreen"
+                android:textColor="@color/colorWhite"
+                android:fontFamily="@font/cormorant_garamond_bold"
+                android:text="Buy Time" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    //shuffle word
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp">
+        <TextView
+            android:id="@+id/shuffledWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="Shuffled Word"
+            android:fontFamily="@font/cormorant_garamond_bold"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    //progress bar
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ProgressBar
+                android:id="@+id/progressbar_timerview"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="260dp"
+                android:layout_height="260dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/drawable_circle_dark" />
+            <ProgressBar
+                android:id="@+id/progressbar1_timerview"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="260dp"
+                android:layout_height="260dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal|center"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/drawable_circle_light"
+                android:visibility="gone" />
+            <EditText
+                android:id="@+id/textViewInput"
+                android:layout_width="180dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="80dp"
+    >
     <Button
         android:id="@+id/button_timerview_start"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@android:color/transparent"
+        android:background="@color/darkGreen"
         android:text="START !"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/cormorant_garamond_bold"
         android:textSize="20sp"
         android:textStyle="italic"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"/>
-
-    <Button
-        android:id="@+id/buyTimeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="132dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Buy Time" />
-
-    <TextView
-        android:id="@+id/scoreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="76dp"
-        android:text="Score" />
-
-    <TextView
-        android:id="@+id/coinTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="73dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:text="Coin" />
-
-    <Button
-        android:id="@+id/highScoreButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="131dp"
-        android:text="High Score" />
-
-
+        />
 </RelativeLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

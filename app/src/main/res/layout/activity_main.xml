@@ -1,147 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    tools:context=".MainActivity"
+    >
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        >
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="20dp"
+            android:gravity="left">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src= "@drawable/highscore"
+                android:id="@+id/highscore"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
 
-    <Button
-        android:id="@+id/check"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="95dp"
-        android:layout_marginLeft="95dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
-        android:layout_marginBottom="258dp"
-        android:text="Check it out" />
+            android:id="@+id/mainShop"
+            >
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/coins"
+                android:gravity="center_horizontal"
+                />
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/mainCoin"
+                android:gravity="center_horizontal"/>
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="95dp"
-        android:layout_marginLeft="95dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
-        android:layout_marginBottom="183dp"
-        android:text="New Game" />
-
-    <TextView
-        android:id="@+id/result"
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="164dp"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="180dp"
-        android:layout_marginRight="180dp"
-        android:layout_marginBottom="89dp"
-        android:text="Score: 0"
-        android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:paddingBottom="20dp"
+        >
+        //check out button
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="left">
+
+            <Button
+                android:id="@+id/check"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:text="Check"
+                android:background="@color/colorLightPink"
+                android:textColor="@color/colorDarkNavy"
+                android:fontFamily="@font/cormorant_garamond_bold"
+                />
+
+        </LinearLayout>
+
+        //score
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="Score: 0"
+                android:fontFamily="@font/cormorant_garamond_bold"
+                android:gravity="center"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+        //hint button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity= "right">
+
+            <Button
+                android:id="@+id/hint"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:background="@color/colorLightPink"
+                android:textColor="@color/colorDarkNavy"
+                android:fontFamily="@font/cormorant_garamond_bold"
+                android:text="Hint" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+//shuffle letter
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="117dp"
-        android:layout_marginLeft="117dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="130dp"
-        android:layout_marginRight="130dp"
         android:gravity="center"
-        android:text="Shuffed Letters"
-        android:textSize="24sp" />
+        >
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:text="Shuffed Letters"
+            android:fontFamily="@font/cormorant_garamond_bold"
+            android:textSize="40sp"
+            />
+    </LinearLayout>
+//hint field
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="89dp"
-        android:layout_marginLeft="89dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginRight="108dp"
-        android:ems="10"
         android:gravity="center"
-        android:textSize="24sp"
-        style="bold"
-        android:hint="Enter Word"
-        android:inputType="textPersonName" />
+        android:background="@color/colorDarkNavy">
 
-    <Button
-        android:id="@+id/highscore"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/hintField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/check"
+            android:layout_margin="10dp"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="20sp"
+            android:fontFamily="@font/cormorant_garamond_bold"
+
+
+            android:hint="hint showing" />
+
+    </LinearLayout>
+
+//enter word
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:text="HIGH SCORE"/>
-
-    <Button
-        android:id="@+id/hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:text="Hint" />
-
-    <TextView
-        android:id="@+id/hintField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/check"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="187dp"
-        android:layout_marginRight="187dp"
-        android:layout_marginBottom="57dp"
-        android:hint="hint showing" />
-
-    <TextView
-        android:id="@+id/coinView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="350dp"
-        android:layout_marginRight="350dp" />
+        android:gravity="center"
+        android:layout_margin="25dp"
+        android:layout_marginBottom="20dp">
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:textSize="40sp"
+            style="bold"
+            android:hint="Enter Word"
+            android:fontFamily="@font/cormorant_garamond_bold"
+            android:inputType="textPersonName" />
+    </LinearLayout>
 
 
-</RelativeLayout>
+    //new game
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="0dp"
+        >
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorLightPink"
+            android:textSize="24sp"
+            android:textColor="@color/colorDarkNavy"
+            android:fontFamily="@font/cormorant_garamond_bold"
+
+            android:text="New Game" />
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

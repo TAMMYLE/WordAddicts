@@ -1,33 +1,21 @@
 package com.example.wordaddicts;
 
-import android.content.Intent;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ShopActivity extends AppCompatActivity {
 
-    ImageView infoButton;
+    TextView storeCoin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
 
-        infoButton = (ImageView) findViewById(R.id.infobutton);
+        storeCoin = (TextView) findViewById(R.id.storeCoin);
 
-        //set media player
-        final MediaPlayer layoutClicked = MediaPlayer.create(this, R.raw.mysecondclick);
-
-        infoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layoutClicked.start();
-                Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
-                startActivity(intent);
-            }
-        });
+        storeCoin.setText("" + MainActivity.coin);
     }
 }

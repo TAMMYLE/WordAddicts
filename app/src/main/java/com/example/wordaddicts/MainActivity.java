@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 //<<<<<<< Updated upstream
@@ -23,8 +25,11 @@ public class MainActivity extends AppCompatActivity {
     Button checkButton, resetButton, hintButton;
     TextView result, hint;
     TextView shuffedLetters;
-    TextView coinView; //added coinView <Phong - 16/4/2019>
-    Button highscore;
+    TextView coinView, mainCoin; //added coinView <Phong - 16/4/2019>
+    ImageView highscore;
+
+    LinearLayout mainShop;
+
 
     String guessWord;
     String givenWord;
@@ -45,10 +50,14 @@ public class MainActivity extends AppCompatActivity {
         hint = (TextView) findViewById(R.id.hintField);
         shuffedLetters = (TextView) findViewById(R.id.textView2);
 
-        coinView = (TextView) findViewById(R.id.coinView);
-        coinView.setText("Coin: " + coin);//display coin player has
+        mainShop = (LinearLayout) findViewById(R.id.mainShop);
 
-        highscore = (Button) findViewById(R.id.highscore);
+//        coinView = (TextView) findViewById(R.id.coinView);
+//        coinView.setText("Coin: " + coin);//display coin player has
+        mainCoin = (TextView) findViewById(R.id.mainCoin);
+        mainCoin.setText("" + coin);
+
+        highscore = (ImageView) findViewById(R.id.highscore);
         // get a random word and shuffle the letters of that word
         givenWord = availableWords.randomWord();
         shuffedWord = availableWords.shuffleWord(givenWord);
@@ -108,6 +117,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //go to shop when click on the coin icon or the amount of coin left
+        mainShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ShopActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         //hintButtun function added <Phong 16/4/2019>
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     coin = 0;
                 }
-                coinView.setText("Coin: " + coin);
+                mainCoin.setText("" + coin);
             }
         });
 
