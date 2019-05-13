@@ -9,6 +9,8 @@ import android.os.CountDownTimer;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -37,6 +39,7 @@ public class TimerActivity extends AppCompatActivity{
 
     private EditText textViewInput;
     private TextView textViewShuffle, scoreTextView, timerCoin;
+    private TextView leveltextview;
 
     private LinearLayout timerShop;
 
@@ -88,10 +91,8 @@ public class TimerActivity extends AppCompatActivity{
 
         timerCoin = (TextView) findViewById(R.id.timerCoin);
         timerCoin.setText("" + MainActivity.coin);
-//        timerCoin.setVisibility(View.INVISIBLE);
 
         timerShop = (LinearLayout) findViewById(R.id.timerShop);
-
 
 
 
@@ -144,18 +145,26 @@ public class TimerActivity extends AppCompatActivity{
                 //display a message according to the result
                 if(availableWords.compareWords(givenWord, guessWord))
                 {
-
-                    if(score >=400)
+                    if(score >=800)
                     {
+                        textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(6) });
+                        renewWordLevel4();
+                    }
+
+                    else if(score >=400)
+                    {
+                        textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(5) });
                         renewWordLevel3();
                     }
 
                     else if(score >= 200)
                     {
+                        textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(4) });
                         renewWordLevel2();
                     }
                     else
                     {
+                        textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(3) });
                         renewWord();
                     }
 
@@ -240,6 +249,16 @@ public class TimerActivity extends AppCompatActivity{
         shuffedWord = availableWords.shuffleWord(givenWord);
         textViewShuffle.setText(shuffedWord);
     }
+
+    //Added by Tammy Le, 13/5/2019
+    private void renewWordLevel4()
+    {
+        givenWord = availableWords.randomWordLevel4();
+        shuffedWord = availableWords.shuffleWord(givenWord);
+        textViewShuffle.setText(shuffedWord);
+    }
+
+
 
 
 

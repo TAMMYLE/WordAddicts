@@ -77,6 +77,7 @@ public class LettersStorage {
     public static String randomWordLevel1() {return WORDSLEVEL1[RANDOM.nextInt(WORDSLEVEL1.length)];}
     public static String randomWordLevel2() {return WORDSLEVEL2[RANDOM.nextInt(WORDSLEVEL2.length)];}
     public static String randomWordLevel3() {return WORDSLEVEL3[RANDOM.nextInt(WORDSLEVEL3.length)];}
+    public static String randomWordLevel4() {return WORDSLEVEL4[RANDOM.nextInt(WORDSLEVEL4.length)];} //Added by Tammy Le, 13/5/2019
 
     public static String shuffleWord(String word) {
         if (word != null && !"".equals(word)){
