@@ -122,5 +122,9 @@
 
 - Design main activity and timer activity
 
+[Tammy]
+- Updated design of progress bar in Timer
+- Activity Added Level4 in LetterStorage
+
 
 
