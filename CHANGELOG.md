@@ -126,5 +126,7 @@
 - Updated design of progress bar in Timer
 - Activity Added Level4 in LetterStorage
 
-
+# Week 10, Tuesday 14 May
+[PHONG]
+- Make some changes to the timer activity [1 hour]
 
