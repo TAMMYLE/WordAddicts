@@ -129,4 +129,8 @@
 # Week 10, Tuesday 14 May
 [PHONG]
 - Make some changes to the timer activity [1 hour]
-
+[Tammy]
+- Updated LetterStorage
+- Added sounds when user get wrong or right answers
+- Deleted checkButton in TimerActivity
+- Added Enter to check the input
