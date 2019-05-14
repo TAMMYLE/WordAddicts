@@ -7,4 +7,6 @@
 
 [sound]cliked.wav, CC-BY, Mativve, https://freesound.org/people/Mativve/sounds/391535/
 
+[method]vibration input (MainActivity.java), Priya, https://stackoverflow.com/questions/15401658/vibration-of-edittext-in-android 
+
 [image]name, license type (Public Domain, CC, CC-BY, CC0, Apache, BSD), author, url
