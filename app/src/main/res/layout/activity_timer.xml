@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".TimerActivity"
     android:orientation="vertical"
+    android:paddingTop="10dp"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -51,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:paddingBottom="20dp"
+
         >
         //check out button
 
@@ -64,10 +65,9 @@
                 android:id="@+id/buttonCheck"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-
                 android:text="Check"
-                android:background="@color/darkGreen"
-                android:textColor="@color/colorWhite"
+                android:background="@color/colorLightPink"
+                android:textColor="@color/colorDarkNavy"
                 android:fontFamily="@font/cormorant_garamond_bold"
                 />
 
@@ -100,8 +100,8 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
 
-                android:background="@color/darkGreen"
-                android:textColor="@color/colorWhite"
+                android:background="@color/colorLightPink"
+                android:textColor="@color/colorDarkNavy"
                 android:fontFamily="@font/cormorant_garamond_bold"
                 android:text="Buy Time" />
 
@@ -111,9 +111,10 @@
     //level layout
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:gravity="center"
-        android:background="@color/colorLightOrange">
+        android:background="@color/colorDarkNavy"
+        >
 
         <TextView
             android:id="@+id/leveltextview"
@@ -130,7 +131,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="30dp">
+        android:padding="15dp">
         <TextView
             android:id="@+id/shuffledWord"
             android:layout_width="match_parent"
@@ -201,10 +202,10 @@
     <Button
         android:id="@+id/button_timerview_start"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/darkGreen"
+        android:layout_height="50dp"
+        android:background="@color/colorLightPink"
         android:text="START !"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorDarkNavy"
         android:fontFamily="@font/cormorant_garamond_bold"
         android:textSize="20sp"
         android:textStyle="italic"

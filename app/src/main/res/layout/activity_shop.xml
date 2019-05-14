@@ -24,6 +24,7 @@
                 android:layout_height="20dp"
                 android:src="@drawable/info"
                 android:gravity="center_horizontal"
+
                 />
         </LinearLayout>
         <LinearLayout

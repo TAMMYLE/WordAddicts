@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class HighScoreActivity extends AppCompatActivity {
 
 
     private TextView wordscore, currentScore, best1TextView, best2TextView, best3TextView;
+    private LinearLayout classicShop;
 
     int latestScore;
     int best1, best2, best3;
@@ -26,6 +29,9 @@ public class HighScoreActivity extends AppCompatActivity {
         best2TextView = (TextView) findViewById(R.id.classicBest2);
         best3TextView = (TextView) findViewById(R.id.classicBest3);
         currentScore = (TextView) findViewById(R.id.classicCurrent);
+
+        classicShop = (LinearLayout) findViewById(R.id.classicHighScoreShop);
+
 
         highScoreClassicCoin = (TextView) findViewById(R.id.highscoreclassicCoin);
         highScoreClassicCoin.setText("" + MainActivity.coin);
@@ -88,6 +94,14 @@ public class HighScoreActivity extends AppCompatActivity {
         best2TextView.setText("Your second best score is " + best2);
         best3TextView.setText("Your third best score is " + best3);
 
+        classicShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ShopActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     // this part will bring player back to the main activity.
@@ -97,4 +111,6 @@ public class HighScoreActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
 }

@@ -16,9 +16,9 @@
         <activity android:name=".HighScoreActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".TimerActivity"
-            android:windowSoftInputMode="adjustNothing"/>//avoid the soft keyboard from pushing the view up/>
+            android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".MainActivity"
-            android:windowSoftInputMode="adjustNothing"/>//avoid the soft keyboard from pushing the view up
+            android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".BeginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class TimerHighScoreActivity extends AppCompatActivity {
@@ -13,6 +15,8 @@ public class TimerHighScoreActivity extends AppCompatActivity {
 
     int latestScore;
     int best1, best2, best3;
+
+    private LinearLayout timerHighScoreShop;
 
     TextView highScoreSpeedCoin;
 
@@ -29,6 +33,9 @@ public class TimerHighScoreActivity extends AppCompatActivity {
 
         highScoreSpeedCoin = (TextView) findViewById(R.id.highscoreSpeedCoin);
         highScoreSpeedCoin.setText("" + MainActivity.coin);
+
+        timerHighScoreShop = (LinearLayout) findViewById(R.id.timerHighScoreShop);
+
 
         // this part is to load old scores from main
         SharedPreferences preferences = getSharedPreferences("TIME_PREFS", 0);
@@ -84,6 +91,15 @@ public class TimerHighScoreActivity extends AppCompatActivity {
         best1TextView.setText("Your best score is " + best1);
         best2TextView.setText("Your second best score is " + best2);
         best3TextView.setText("Your third best score is " + best3);
+
+        timerHighScoreShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ShopActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
