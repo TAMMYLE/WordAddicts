@@ -15,7 +15,7 @@ public class LettersStorage {
     public static final String[] WORDS = {"LAPTOP", "SUNDAY", "GAME", "MARVELLOUS", "WHITE", "UPDATE", "FLOWER", "HOTEL", "TEACHER", "STRUCTURE", "YOGURT", "WONDER", "HOPE",
             "BEAUTIFUL", "UNUSUAL", "JUICE", "ORANGE", "STRAWBERRY", "CUP", "POP", "FLOP", "MOP", "UNIQUE"};
     public static final String[] WORDSLEVEL1 = {"ACT", "AGE", "ACE", "ADD", "BAD", "BAR", "BED", "BIN", "CAR", "CAT","DIE", "DIG", "DOG", "DRY", "EGO", "FAR", "HER", "HIM", "HUB",
-    "LAY", "LAST", "LOW", "LIE", "MAD", "MAP", "ODD", "OFF", "PAD", "PAY", "PET", "PIG", "PEN", "PUT", "RED", "SAD", "SIN", "SIT", "SAY", "SEE", "WAX", "WIN", "YOU"};
+    "LAY", "LOW", "LIE", "MAD", "MAP", "ODD", "OFF", "PAD", "PAY", "PET", "PIG", "PEN", "PUT", "RED", "SAD", "SIN", "SIT", "SAY", "SEE", "WAX", "WIN", "YOU"};
 
     public static final String[] WORDSLEVEL2 = {"JAZZ", "FUZZ", "BUZZ", "QUIZ", "JACK", "JUMP", "JUNK", "COZY", "JOKE", "JOWL", "JIVE", "QUIP", "BOXY", "DOZY", "FLUX", "JAWS", "JEEP",
     "JOBS", "JUGS", "LAZY", "MAZE", "JURY", "QUAY", "BUCK", "FAUX", "JAGS", "YELL", "KICK", "LYNX", "QUID", "QUIN", "AQUA", "BECK", "BACK", "BUFF", "BUMP", "CUFF", "DOSE", "DOZE",

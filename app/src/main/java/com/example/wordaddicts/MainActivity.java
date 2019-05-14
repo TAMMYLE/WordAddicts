@@ -2,9 +2,14 @@ package com.example.wordaddicts;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -41,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //set media player
+        final MediaPlayer correctWord = MediaPlayer.create(this, R.raw.correct);
+        final MediaPlayer incorrectWord = MediaPlayer.create(this, R.raw.incorrect);
+        final MediaPlayer newgame = MediaPlayer.create(this, R.raw.myclicksound);
+
 //        get all buttons, text input from activity_main.xml and assign their value to above variables
         textInput = (EditText) findViewById(R.id.editText);
         checkButton = (Button) findViewById(R.id.check);
@@ -63,8 +75,17 @@ public class MainActivity extends AppCompatActivity {
         shuffedWord = availableWords.shuffleWord(givenWord);
         shuffedLetters.setText(shuffedWord);// display that shuffeld word
 
-
-
+        textInput.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                //if the event is a key-down event on the enter key
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
+                {
+                    Toast.makeText(getApplicationContext(), "You've got this", Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+        });
 
         //this function checks if the word match when ever the user click check button (created by Phong 9/4/2019)
         checkButton.setOnClickListener(new View.OnClickListener() {
@@ -78,12 +99,20 @@ public class MainActivity extends AppCompatActivity {
                     result.setText("Score: " + score);  //set the Score field with extra score
                     textInput.setText("");              //clear the input
                     renewWord();                        //renew the given word
+                    //play sound
+                    correctWord.start();
 //
                 }
                 else
-                {
-                    result.setText("Score" + score);
-                    //Toast.makeText(getApplicationContext(), "Oops! Try again !", Toast.LENGTH_SHORT).show();
+                {                                        //Added by Tammy Le, 14/5/2019
+                    score -= 5;                         //if the answer is incorrect, score minus five
+                    result.setText("Score: " + score);
+
+                    //if the input is wrong --> vibration will be applied for textviewInput, indicates the input is wrong.
+                    textInput.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.vibrate ));
+
+                    //play sound
+                    incorrectWord.start();
 //
                 }
             }
@@ -98,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
                 result.setText("Score: 0");             //click reset -> the Score back to 0 - added by Tammy Le
                 textInput.setText("");
                 hint.setText("");                       //set hint to empty
+                //play sound
+                newgame.start();
 
             }
         });

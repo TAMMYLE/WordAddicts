@@ -4,6 +4,7 @@ package com.example.wordaddicts;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.support.annotation.RequiresApi;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -34,7 +36,6 @@ public class TimerActivity extends AppCompatActivity{
     private ImageView highScoreTimer;
 
     private Button buttonStartTime;
-    private Button buttonCheck;
     private Button buttonBuyTime;
 
     private EditText textViewInput;
@@ -62,10 +63,14 @@ public class TimerActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
+        //set media player
+        final MediaPlayer correctWord = MediaPlayer.create(this, R.raw.correct);
+        final MediaPlayer incorrectWord = MediaPlayer.create(this, R.raw.incorrect);
+        final MediaPlayer newgame = MediaPlayer.create(this, R.raw.myclicksound);
+
         //initialize views
 
         buttonStartTime = (Button) findViewById(R.id.button_timerview_start);
-        buttonCheck = (Button) findViewById(R.id.buttonCheck);
         buttonBuyTime = (Button) findViewById(R.id.buyTimeButton);
         buttonBuyTime.setVisibility(View.INVISIBLE);// hide the button when the game has not started
 
@@ -73,8 +78,11 @@ public class TimerActivity extends AppCompatActivity{
 
         highScoreTimer = (ImageView) findViewById(R.id.highscoreTimer);
 
-
-
+        //declare level variable
+        //added by Tammy Le, 13/5/2019
+        leveltextview = (TextView) findViewById(R.id.leveltextview);
+        leveltextview.setText("LEVEL 1");//initialize the level
+        leveltextview.setVisibility(View.INVISIBLE);// set the LevelTextView to be invisible until the game starts
 
         textViewInput = (EditText)
                 findViewById(R.id.textViewInput);
@@ -94,23 +102,95 @@ public class TimerActivity extends AppCompatActivity{
 
         timerShop = (LinearLayout) findViewById(R.id.timerShop);
 
+        //Set max length for first level input
+        textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(4) });
+        textViewInput.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
+                {
+                    //retrieving user's input --> convert to string
+                    guessWord = textViewInput.getText().toString();
 
+                    //added by Tammy, 3/5/2019
+                    //Hide the soft keyboard when user pressed
+                    closeKeyboard();
+
+                    //clear the input
+                    textViewInput.setText("");
+                    //display a message according to the result
+                    if(availableWords.compareWords(givenWord, guessWord))
+                    {
+
+                        if(score >=800)
+                        {
+                            //set max length for input Level 4
+                            textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(6) });
+                            leveltextview.setText("IV");
+                            renewWordLevel4();
+                        }
+
+                        else if(score >=400)
+                        {
+                            //set max length for input Level 3
+                            textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(5) });
+                            leveltextview.setText("III");
+                            renewWordLevel3();
+                        }
+
+                        else if(score >= 200)
+                        {
+                            //set max length for input Level 2
+                            textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(4) });
+                            leveltextview.setText("II" );
+                            renewWordLevel2();
+                        }
+                        else
+                        {
+                            leveltextview.setText("I");
+                            renewWord();
+                        }
+
+                        score += 10;//add the score
+                        scoreTextView.setText("Score: " + score);//increase the score when user insert a right answer
+                        plusTime();
+                        //play sound
+                        correctWord.start();
+
+                    }
+                    else
+                    {
+                        //play sound incorrect
+                        incorrectWord.start();
+                    }
+
+
+
+
+                }
+                return false;
+            }
+        });
 
         //initialize the click listeners
         // If id is a Start button
         buttonStartTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //play sound
+                newgame.start();
                 //call setTimer function
                 setTimer();
                 score = 0;
                 scoreTextView.setText("Score: " + score);
+                leveltextview.setText("I");
                 //set the visibility of all needed views
                 buttonStartTime.setVisibility(View.INVISIBLE);
-                buttonCheck.setVisibility(View.VISIBLE);
                 mProgressBar.setVisibility(View.INVISIBLE);
                 textViewShuffle.setVisibility(View.VISIBLE);//show the word that user needs to guess
-                scoreTextView.setVisibility(View.VISIBLE);// show the score when the game start
+                scoreTextView.setVisibility(View.VISIBLE);// show the score when the game starts
+                leveltextview.setVisibility(View.VISIBLE);// show the level when the game starts
                 timerCoin.setVisibility(View.VISIBLE);//show the coin when the game starts
                 buttonBuyTime.setVisibility(View.VISIBLE);// show the buyTime button when the game starts
                 textViewInput.setVisibility(View.VISIBLE);//show the textInput
@@ -126,63 +206,6 @@ public class TimerActivity extends AppCompatActivity{
             }
         });
 
-        //if ID is a Check button
-        buttonCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                //retrieving user's input --> convert to string
-                guessWord = textViewInput.getText().toString();
-
-                //added by Tammy, 3/5/2019
-                //Hide the soft keyboard when user pressed
-                //textViewInput.onEditorAction(EditorInfo.IME_ACTION_DONE);
-                closeKeyboard();
-
-                textViewInput.setText("");//clear the input
-
-                //display a message according to the result
-                if(availableWords.compareWords(givenWord, guessWord))
-                {
-                    if(score >=800)
-                    {
-                        textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(6) });
-                        renewWordLevel4();
-                    }
-
-                    else if(score >=400)
-                    {
-                        textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(5) });
-                        renewWordLevel3();
-                    }
-
-                    else if(score >= 200)
-                    {
-                        textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(4) });
-                        renewWordLevel2();
-                    }
-                    else
-                    {
-                        textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(3) });
-                        renewWord();
-                    }
-
-                    score += 10;//add the score
-                    scoreTextView.setText("Score: " + score);//increase the score when user insert a right answer
-
-                    plusTime();
-
-
-                }
-                else
-                {   //if the input is wrong --> vibration will be applied for textviewInput, indicates the input is wrong.
-                    textViewInput.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.vibrate ));
-                }
-//
-            }
-        });
-        buttonCheck.setVisibility(View.INVISIBLE);
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressbar_timerview);
         mProgressBar1 = (ProgressBar) findViewById(R.id.progressbar1_timerview);
@@ -208,6 +231,8 @@ public class TimerActivity extends AppCompatActivity{
         highScoreTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //play sound
+                newgame.start();
                 Intent intent = new Intent(getApplicationContext(), TimerHighScoreActivity.class);
                 startActivity(intent);
                 finish();
@@ -217,6 +242,8 @@ public class TimerActivity extends AppCompatActivity{
         timerShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //play sound
+                newgame.start();
                 Intent intent = new Intent(getApplicationContext(), ShopActivity.class);
                 startActivity(intent);
                 finish();
@@ -332,7 +359,6 @@ public class TimerActivity extends AppCompatActivity{
             mProgressBar.setVisibility(View.VISIBLE);
             mProgressBar1.setVisibility(View.GONE);
             textViewInput.setText("");
-            buttonCheck.setVisibility(View.INVISIBLE);
             textViewShuffle.setText("TIME OUT!!!!");
             buttonBuyTime.setVisibility(View.INVISIBLE);
 

@@ -169,6 +169,7 @@
             style="bold"
             android:hint="Enter Word"
             android:fontFamily="@font/cormorant_garamond_bold"
+            android:maxLength="15"
             android:inputType="textPersonName" />
     </LinearLayout>
 
