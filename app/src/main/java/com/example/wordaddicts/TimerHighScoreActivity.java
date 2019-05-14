@@ -13,8 +13,9 @@ public class TimerHighScoreActivity extends AppCompatActivity {
 
     private TextView timerScore, currentTextView, best1TextView, best2TextView, best3TextView;
 
-    int latestScore;
-    int best1, best2, best3;
+    private int latestScore;
+    private int best1, best2, best3;
+    private int coin;
 
     private LinearLayout timerHighScoreShop;
 
@@ -25,14 +26,15 @@ public class TimerHighScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer_high_score);
 
-//        timerScore = (TextView) findViewById(R.id.wordscore);
+        //get all the elements from the layout
         currentTextView = (TextView) findViewById(R.id.speedCurrent);
         best1TextView= (TextView) findViewById(R.id.speedBest1);
         best2TextView= (TextView) findViewById(R.id.speedBest2);
         best3TextView = (TextView) findViewById(R.id.speedBest3);
 
         highScoreSpeedCoin = (TextView) findViewById(R.id.highscoreSpeedCoin);
-        highScoreSpeedCoin.setText("" + MainActivity.coin);
+        coin = retrieveCoin();//retrieve the coin from shared preference
+        highScoreSpeedCoin.setText("" + coin);
 
         timerHighScoreShop = (LinearLayout) findViewById(R.id.timerHighScoreShop);
 
@@ -109,5 +111,22 @@ public class TimerHighScoreActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), TimerActivity.class);
         startActivity(intent);
         finish();
+    }
+    //put the new value of coin to the sharedpreference
+    public void editCoin(int coin)
+    {
+        SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("coin", coin);
+        editor.apply();
+    }
+    //retrieve the value of coin from SharedPreference
+    public int retrieveCoin()
+    {
+        int coin1;
+        SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
+
+        coin1 = preferences.getInt("coin", 0);
+        return coin1;
     }
 }

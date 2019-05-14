@@ -13,20 +13,20 @@ public class MenuActivity extends AppCompatActivity {
 
     private CardView classicCard, speedCard, highScoreCard, shopCard;
 
-    TextView aboutCoin;
-    ImageView infoButton;
+
+    private ImageView infoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        aboutCoin = (TextView) findViewById(R.id.aboutCoin);
+
         infoButton = (ImageView) findViewById(R.id.infobutton);
 
         //set media player
         final MediaPlayer layoutClicked = MediaPlayer.create(this, R.raw.mysecondclick);
 
-        aboutCoin.setText("" + MainActivity.coin);
+
 
         classicCard = (CardView) findViewById(R.id.classicModeCard);
         speedCard = (CardView) findViewById(R.id.speedModeCard);

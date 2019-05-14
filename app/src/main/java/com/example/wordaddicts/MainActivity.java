@@ -2,14 +2,9 @@ package com.example.wordaddicts;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputFilter;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -25,20 +20,20 @@ public class MainActivity extends AppCompatActivity {
     //declare variable for score . <Tammy Le - 15/4/2019>
     int score;
 
-    public static int coin = 500; //added a coin integer <Phong 16/4/2019>
-    EditText textInput;
-    Button checkButton, resetButton, hintButton;
-    TextView result, hint;
-    TextView shuffedLetters;
-    TextView coinView, mainCoin; //added coinView <Phong - 16/4/2019>
-    ImageView highscore;
+    private int coin = 500; //added a coin integer <Phong 16/4/2019>
+    private EditText textInput;
+    private Button checkButton, resetButton, hintButton;
+    private TextView result, hint;
+    private TextView shuffedLetters;
+    private TextView coinView, mainCoin; //added coinView <Phong - 16/4/2019>
+    private ImageView highscore;
 
     LinearLayout mainShop;
 
 
-    String guessWord;
-    String givenWord;
-    String shuffedWord;
+    private String guessWord;
+    private String givenWord;
+    private String shuffedWord;
 
     LettersStorage availableWords = new LettersStorage();
 
@@ -46,13 +41,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        //set media player
-        final MediaPlayer correctWord = MediaPlayer.create(this, R.raw.correct);
-        final MediaPlayer incorrectWord = MediaPlayer.create(this, R.raw.incorrect);
-        final MediaPlayer newgame = MediaPlayer.create(this, R.raw.myclicksound);
-
 //        get all buttons, text input from activity_main.xml and assign their value to above variables
         textInput = (EditText) findViewById(R.id.editText);
         checkButton = (Button) findViewById(R.id.check);
@@ -64,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
         mainShop = (LinearLayout) findViewById(R.id.mainShop);
 
-//        coinView = (TextView) findViewById(R.id.coinView);
-//        coinView.setText("Coin: " + coin);//display coin player has
+
         mainCoin = (TextView) findViewById(R.id.mainCoin);
+        coin = retrieveCoin();
         mainCoin.setText("" + coin);
 
         highscore = (ImageView) findViewById(R.id.highscore);
@@ -75,17 +63,8 @@ public class MainActivity extends AppCompatActivity {
         shuffedWord = availableWords.shuffleWord(givenWord);
         shuffedLetters.setText(shuffedWord);// display that shuffeld word
 
-        textInput.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                //if the event is a key-down event on the enter key
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
-                {
-                    Toast.makeText(getApplicationContext(), "You've got this", Toast.LENGTH_SHORT).show();
-                }
-                return false;
-            }
-        });
+
+
 
         //this function checks if the word match when ever the user click check button (created by Phong 9/4/2019)
         checkButton.setOnClickListener(new View.OnClickListener() {
@@ -99,20 +78,12 @@ public class MainActivity extends AppCompatActivity {
                     result.setText("Score: " + score);  //set the Score field with extra score
                     textInput.setText("");              //clear the input
                     renewWord();                        //renew the given word
-                    //play sound
-                    correctWord.start();
 //
                 }
                 else
-                {                                        //Added by Tammy Le, 14/5/2019
-                    score -= 5;                         //if the answer is incorrect, score minus five
-                    result.setText("Score: " + score);
-
-                    //if the input is wrong --> vibration will be applied for textviewInput, indicates the input is wrong.
-                    textInput.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.vibrate ));
-
-                    //play sound
-                    incorrectWord.start();
+                {
+                    result.setText("Score" + score);
+                    //Toast.makeText(getApplicationContext(), "Oops! Try again !", Toast.LENGTH_SHORT).show();
 //
                 }
             }
@@ -127,8 +98,6 @@ public class MainActivity extends AppCompatActivity {
                 result.setText("Score: 0");             //click reset -> the Score back to 0 - added by Tammy Le
                 textInput.setText("");
                 hint.setText("");                       //set hint to empty
-                //play sound
-                newgame.start();
 
             }
         });
@@ -186,56 +155,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//=======
-//import android.widget.Toast;
-//
-//public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-//
-//    private TextView shuffleWord;
-//    private EditText enterWord;
-//    private Button check;
-//    private Button newgame;
-//    private String wordToFind;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//        shuffleWord = (TextView) findViewById(R.id.shuffleWord);
-//        enterWord = (EditText) findViewById(R.id.enterWord);
-//        check = (Button) findViewById(R.id.check);
-//        check.setOnClickListener(this);
-//        newgame = (Button) findViewById(R.id.newgame);
-//        newgame.setOnClickListener(this);
-//
-//        newgame();
-//    }
-//
-//    @Override
-//    public void onClick(View v) {
-//        if (v == check){
-//            check();
-//        } else if (v == newgame){
-//            newgame();
-//        }
-//    }
-//
-//    private void check() {
-//        String myWord = enterWord.getText().toString();
-//
-//        if (wordToFind.equals(myWord)) {
-//            Toast.makeText(this, "Congratulations ! Your word is " + wordToFind, Toast.LENGTH_SHORT).show();
-//        } else {
-//            Toast.makeText(this, "Oops! Try again !", Toast.LENGTH_SHORT).show();
-//        }
-//    }
-
-//    private void newgame() {
-//        wordToFind = Anagram.randomWord();
-//        String shuffledWord = Anagram.shuffleWord(wordToFind);
-//>>>>>>> Stashed changes
-//
     }
     //Added by Tammy Le, 15/4/2019
     //Function to renew the word that player has to guess
@@ -243,5 +162,21 @@ public class MainActivity extends AppCompatActivity {
         givenWord = availableWords.randomWord();
         shuffedWord = availableWords.shuffleWord(givenWord);
         shuffedLetters.setText(shuffedWord);
+    }
+    public void editCoin(int coin)
+    {
+        SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("coin", coin);
+        editor.apply();
+    }
+    //retrieve the value of coin from SharedPreference
+    public int retrieveCoin()
+    {
+        int coin1;
+        SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
+
+        coin1 = preferences.getInt("coin", 0);
+        return coin1;
     }
 }

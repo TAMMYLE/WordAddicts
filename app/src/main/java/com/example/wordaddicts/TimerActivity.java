@@ -32,6 +32,7 @@ public class TimerActivity extends AppCompatActivity{
 
     ProgressBar mProgressBar, mProgressBar1;
     int score;
+    private int coin;
 
     private ImageView highScoreTimer;
 
@@ -98,7 +99,8 @@ public class TimerActivity extends AppCompatActivity{
         score = 0;//set the score to 0;
 
         timerCoin = (TextView) findViewById(R.id.timerCoin);
-        timerCoin.setText("" + MainActivity.coin);
+        coin = retrieveCoin();//retrieve coin from the shared preference
+        timerCoin.setText("" + coin);
 
         timerShop = (LinearLayout) findViewById(R.id.timerShop);
 
@@ -164,9 +166,6 @@ public class TimerActivity extends AppCompatActivity{
                         incorrectWord.start();
                     }
 
-
-
-
                 }
                 return false;
             }
@@ -214,12 +213,12 @@ public class TimerActivity extends AppCompatActivity{
         buttonBuyTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(MainActivity.coin >= 100)
+                if(coin >= 100)
                 {
-                    MainActivity.coin = MainActivity.coin - 100;
-
+                    coin = coin - 100;
+                    editCoin(coin);// update the coin to the shared preference
                     plusTime();
-                    timerCoin.setText("" + MainActivity.coin);
+                    timerCoin.setText("" + coin);
                 }
                 else
                 {
@@ -322,13 +321,23 @@ public class TimerActivity extends AppCompatActivity{
      *   function plusTime: is used to give extra time whenever player gets correct word
      */
     private void plusTime(){
-        countDownTimer.cancel();
-        countDownTimer = new MyCountDown(totalTimeCountInMilliseconds + 3000, 50);
+
+        if(totalTimeCountInMilliseconds < 10000)
+        {
+            countDownTimer.cancel();
+            countDownTimer = new MyCountDown(totalTimeCountInMilliseconds + 3000, 50);
+        }
+        else
+        {
+            countDownTimer.cancel();
+            countDownTimer = new MyCountDown(10000, 50);
+        }
+
         countDownTimer.start();
 
 
     }
-
+//function to close the soft keyboard
     private void closeKeyboard()
     {
         View view = this.getCurrentFocus();
@@ -338,7 +347,7 @@ public class TimerActivity extends AppCompatActivity{
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-
+    //create a custom CountDownTimer
     public class MyCountDown extends CountDownTimer {
         public MyCountDown(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
@@ -359,7 +368,7 @@ public class TimerActivity extends AppCompatActivity{
             mProgressBar.setVisibility(View.VISIBLE);
             mProgressBar1.setVisibility(View.GONE);
             textViewInput.setText("");
-            textViewShuffle.setText("TIME OUT!!!!");
+            textViewShuffle.setText(givenWord);
             buttonBuyTime.setVisibility(View.INVISIBLE);
 
             //put the new score into highScore list (if suitable)
@@ -378,6 +387,22 @@ public class TimerActivity extends AppCompatActivity{
         }
 
 
+    }
+    public void editCoin(int coin)
+    {
+        SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("coin", coin);
+        editor.apply();
+    }
+    //retrieve the value of coin from SharedPreference
+    public int retrieveCoin()
+    {
+        int coin1;
+        SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
+
+        coin1 = preferences.getInt("coin", 0);
+        return coin1;
     }
 
 

@@ -15,8 +15,9 @@ public class HighScoreActivity extends AppCompatActivity {
     private TextView wordscore, currentScore, best1TextView, best2TextView, best3TextView;
     private LinearLayout classicShop;
 
-    int latestScore;
-    int best1, best2, best3;
+    private int latestScore;
+    private int best1, best2, best3;
+    private int coin;
     TextView highScoreClassicCoin;
 
     @Override
@@ -24,7 +25,7 @@ public class HighScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
 
-//        wordscore = (TextView) findViewById(R.id.wordscore);
+        //get all the elements from the layout
         best1TextView = (TextView) findViewById(R.id.classicBest1);
         best2TextView = (TextView) findViewById(R.id.classicBest2);
         best3TextView = (TextView) findViewById(R.id.classicBest3);
@@ -34,7 +35,8 @@ public class HighScoreActivity extends AppCompatActivity {
 
 
         highScoreClassicCoin = (TextView) findViewById(R.id.highscoreclassicCoin);
-        highScoreClassicCoin.setText("" + MainActivity.coin);
+        coin = retrieveCoin();//retrieve the coin from the preference
+        highScoreClassicCoin.setText("" + coin);
 
         // this part is to load old scores from main
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
@@ -112,5 +114,22 @@ public class HighScoreActivity extends AppCompatActivity {
         finish();
     }
 
+    //put the new value of coin to the sharedpreference
+    public void editCoin(int coin)
+    {
+        SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("coin", coin);
+        editor.apply();
+    }
+    //retrieve the value of coin from SharedPreference
+    public int retrieveCoin()
+    {
+        int coin1;
+        SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
+
+        coin1 = preferences.getInt("coin", 0);
+        return coin1;
+    }
 
 }

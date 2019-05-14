@@ -26,22 +26,7 @@
                 android:gravity="center_horizontal"
                 />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="right">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/coins"
-                android:gravity="center_horizontal"
-                />
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:id="@+id/aboutCoin"
-                android:gravity="center_horizontal"/>
-        </LinearLayout>
+
 
     </LinearLayout>
     ///logo
@@ -67,6 +52,53 @@
         android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+
+            android:layout_width="160dp"
+            android:layout_height="190dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/classicModeCard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_border_color_black_24dp"
+                    android:background="@drawable/circlebackgrounddarknavy"
+                    android:padding="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Classic"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/cormorant_garamond_bold" />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:layout_margin="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="See the beauty of vocab in classic way"
+                    app:fontFamily="@font/cormorant_garamond_semibold"
+                    android:padding="10dp"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -114,52 +146,7 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
 
-            android:layout_width="160dp"
-            android:layout_height="190dp"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/classicModeCard">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_border_color_black_24dp"
-                    android:background="@drawable/circlebackgrounddarknavy"
-                    android:padding="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Classic"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/cormorant_garamond_bold" />
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:background="@color/cardview_light_background"
-                    android:layout_margin="2dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="See the beauty of vocab in classic way"
-                    app:fontFamily="@font/cormorant_garamond_semibold"
-                    android:padding="10dp"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
     </LinearLayout>
 
 
