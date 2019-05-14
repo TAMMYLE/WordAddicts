@@ -129,6 +129,7 @@
 # Week 10, Tuesday 14 May
 [PHONG]
 - Make some changes to the timer activity [1 hour]
+- Add SharedPreference for coin [1 hour]
 
 [Tammy]
 - Updated LetterStorage
