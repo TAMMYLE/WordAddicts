@@ -20,14 +20,14 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:id="@+id/shopButton">
+
             <ImageView
-                android:layout_width="20dp"
+                android:layout_width="19dp"
                 android:layout_height="20dp"
-                android:src="@drawable/coins"
                 android:gravity="center_horizontal"
-                />
+                android:src="@drawable/coins" />
             <TextView
-                android:layout_width="30dp"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:id="@+id/aboutCoin"
                 android:gravity="center_horizontal"/>

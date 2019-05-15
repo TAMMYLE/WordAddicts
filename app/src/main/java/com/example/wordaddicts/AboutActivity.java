@@ -36,6 +36,11 @@ public class AboutActivity extends AppCompatActivity {
 
         //If players click on the coin image at the bottom of the page --> coin will be plus 100
         plusCoin = (ImageView) findViewById(R.id.buttonpluscoin);
+        /*
+        set the click listener for the ImageView plusCoin
+        SharedPreference is used to assure that user can only click 3 times per day
+        every click is rewarded with 10 coins
+         */
         plusCoin.setOnClickListener(new View.OnClickListener() {
             int clicks = 0;//variable to store the number of clicks
             Date date = new Date();//get the current date
@@ -52,7 +57,7 @@ public class AboutActivity extends AppCompatActivity {
 
                 clicks++;
 
-
+                //clicklimit
                 if(clicks<4 && date.toString() != preferences.getString("date", null))// only allow 3 clicks one day
                 {
                     coin += 10;
@@ -63,11 +68,14 @@ public class AboutActivity extends AppCompatActivity {
                     plusCoin.setClickable(false);//unable user to click on the ImageView after 3 clicks
                 }
 
-
             }
 
         });
         //navigate to the shopActivity
+        /*
+        set click listener for the coin icon and the amount of coin left
+        new intent is created to take user to the ShopActivity
+         */
         shopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +88,12 @@ public class AboutActivity extends AppCompatActivity {
 
     }
     //put the new value of coin to the sharedpreference
+        /*
+    editCoin()
+    take the current amount of coin and put it into the SharedPreferences
+    parameters: current number of coin in Integer form
+    return: void, the function just edit the coin in the SharedPreference, doesn't return anything
+     */
     public void editCoin(int coin)
     {
         SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
@@ -88,6 +102,12 @@ public class AboutActivity extends AppCompatActivity {
         editor.apply();
     }
     //retrieve the value of coin from SharedPreference
+        /*
+    retrieveCoin()
+    retrieve the amount of coin currently holding in the SharedPreference
+    parameters: no parameters needed
+    returns: integer contains the number of coins.
+     */
     public int retrieveCoin()
     {
         int coin1;

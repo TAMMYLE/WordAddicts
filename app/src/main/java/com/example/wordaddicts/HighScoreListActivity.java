@@ -28,7 +28,7 @@ public class HighScoreListActivity extends AppCompatActivity {
         coin = retrieveCoin(); // retireve the coin from the shared preference
         highScoreListCoinTextView.setText("" + coin);
 
-        highScoreListShop = (LinearLayout) findViewById(R.id.highscorelistShop);
+        highScoreListShop = (LinearLayout) findViewById(R.id.highscorelist);
         //navigate to shop
         highScoreListShop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,14 +38,20 @@ public class HighScoreListActivity extends AppCompatActivity {
                 finish();
             }
         });
-        //navigate to highscore of classic mode
+
+        /*
+        navigate to highscore of classic mode
+         */
         classicHighScoreCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openHighScoreActivity();
             }
         });
-        //navigate to highscore of speed mode
+        /*
+        navigate to highscore of speed mode
+         */
+
         speedHighScoreCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,11 +61,22 @@ public class HighScoreListActivity extends AppCompatActivity {
 
     }
     //fucntions to navigate to other activities using intents
+        /*
+    openHighScoreAcitivity
+    navigate to highscore activity through intent
+    parameters: no parameters needed
+    returns: void
+    */
     public void openHighScoreActivity(){
         Intent intent = new Intent(this, HighScoreActivity.class);
         startActivity(intent);
     }
-
+    /*
+    openTimerHighScoreAcitivity
+    navigate to timerhighscoreactivity through intent
+    parameters: no parameters needed
+    returns: void
+    */
     public void openTimerHighScoreActivity(){
         Intent intent = new Intent(this, TimerHighScoreActivity.class);
         startActivity(intent);
@@ -67,6 +84,12 @@ public class HighScoreListActivity extends AppCompatActivity {
 
 
     //put the new value of coin to the sharedpreference
+        /*
+    editCoin()
+    take the current amount of coin and put it into the SharedPreferences
+    parameters: current number of coin in Integer form
+    return: void, the function just edit the coin in the SharedPreference, doesn't return anything
+     */
     public void editCoin(int coin)
     {
         SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
@@ -75,6 +98,12 @@ public class HighScoreListActivity extends AppCompatActivity {
         editor.apply();
     }
     //retrieve the value of coin from SharedPreference
+        /*
+    retrieveCoin()
+    retrieve the amount of coin currently holding in the SharedPreference
+    parameters: no parameters needed
+    returns: integer contains the number of coins.
+     */
     public int retrieveCoin()
     {
         int coin1;

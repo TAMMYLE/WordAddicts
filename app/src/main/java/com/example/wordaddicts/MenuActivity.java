@@ -32,7 +32,10 @@ public class MenuActivity extends AppCompatActivity {
         speedCard = (CardView) findViewById(R.id.speedModeCard);
         highScoreCard = (CardView) findViewById(R.id.highScoreCard);
         shopCard = (CardView) findViewById(R.id.shopCard);
-
+        /*
+        navigating to AboutActivity
+        appropriate sound is played
+         */
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +46,10 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        navigate to MainActivity
+        appropriate sound is played
+         */
         classicCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +58,11 @@ public class MenuActivity extends AppCompatActivity {
                 openMainActivity();
             }
         });
+
+        /*
+        navigate to TimerActivity
+        appropriate sound is played
+         */
         speedCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +71,10 @@ public class MenuActivity extends AppCompatActivity {
                 openTimerActivity();
             }
         });
-
+        /*
+        navigate to HighScoreListActivity
+        appropriate sound is played
+         */
         highScoreCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +83,10 @@ public class MenuActivity extends AppCompatActivity {
                 openHighScoreListActivity();
             }
         });
-
+        /*
+        navigate to ShopActivity
+        appropriate sound is played
+         */
         shopCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,21 +97,44 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
 
+    /*
+    openMainAcitivity
+    navigate to main activity through intent
+    parameters: no parameters needed
+    returns: void
+     */
     public void openMainActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
+    /*
+    openTimerAcitivity
+    navigate to timer activity through intent
+    parameters: no parameters needed
+    returns: void
+     */
     public void openTimerActivity()
     {
         Intent intent = new Intent(this, TimerActivity.class);
         startActivity(intent);
     }
+    /*
+    openHighScoreListAcitivity
+    navigate to highscorelistactivity through intent
+    parameters: no parameters needed
+    returns: void
+    */
     public void openHighScoreListActivity()
     {
         Intent intent = new Intent(this, HighScoreListActivity.class);
         startActivity(intent);
     }
+    /*
+    openShopAcitivity
+    navigate to shop activity through intent
+    parameters: no parameters needed
+    returns: void
+     */
 
     public void openShopActivity()
     {

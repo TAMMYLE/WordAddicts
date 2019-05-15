@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         mainCoin = (TextView) findViewById(R.id.mainCoin);
-        coin = retrieveCoin();
+        coin = retrieveCoin();// retrieve coin from the sharedPreference
         mainCoin.setText("" + coin);
 
         highscore = (ImageView) findViewById(R.id.highscore);
@@ -72,36 +74,64 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 guessWord = textInput.getText().toString();
                 //display a message according to the result
+                /*
+                Added by Tammy Le, 15/4/2019
+                if the answer is correct, score plus ten
+                set the Score field with extra score
+                clear the input
+                renew the given word
+                the if condition is triggered when user guess the right word (guessWord == givenWord
+
+                 */
                 if(availableWords.compareWords(givenWord, guessWord))
-                {                                       //Added by Tammy Le, 15/4/2019
-                    score += 10;                        //if the answer is correct, score plus ten
-                    result.setText("Score: " + score);  //set the Score field with extra score
-                    textInput.setText("");              //clear the input
-                    renewWord();                        //renew the given word
+                {
+                    score += 10;
+                    result.setText("Score: " + score);
+                    textInput.setText("");
+                    renewWord();
 //
                 }
                 else
                 {
                     result.setText("Score" + score);
-                    //Toast.makeText(getApplicationContext(), "Oops! Try again !", Toast.LENGTH_SHORT).show();
+
+                    //added by Tammy Le
+                    //When player gets a wrong word -> input will be vibrated
+                    //Inspired by Priya
+                    Animation vibrate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.vibrate);
+                    textInput.startAnimation(vibrate);
 //
                 }
+
+
+
+
             }
         });
         //this function reset the game, give new shuffled word (created by Phong 10/4/2019)
+        /*
+        resetButton
+        set the click listener for resetButton, everytime it's clicked a new word is chosen and shuffled
+        textInput is set to empty and score is set to 0
+        hint is clear
+         */
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 givenWord = availableWords.randomWord();
                 shuffedWord = availableWords.shuffleWord(givenWord);
                 shuffedLetters.setText(shuffedWord);
-                result.setText("Score: 0");             //click reset -> the Score back to 0 - added by Tammy Le
+                result.setText("Score: 0");
                 textInput.setText("");
-                hint.setText("");                       //set hint to empty
+                hint.setText("");
 
             }
         });
-
+        /*
+        set click listener for highscore
+        the current score will be put in the SharedPreference
+        a new intent is triggered, bring user to HighScoreActivity
+         */
         highscore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +147,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //go to shop when click on the coin icon or the amount of coin left
+        /*
+        set click listener for shop (icon or the amount of coin left)
+        new intent is created taking the user to ShopActivity
+         */
         mainShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,6 +161,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //hintButtun function added <Phong 16/4/2019>
+        /*
+        hintButton gives hint when possible
+        there are two situations when hint is not given
+        1. all hints have been given
+        2. user doesn't have enough coins to buy a hint
+        every hint revealed, 100 coin is deducted
+        new number of coin will be put in the SharedPreference through editCoin() method
+
+         */
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     coin = 0;
                 }
+                editCoin(coin);
                 mainCoin.setText("" + coin);
             }
         });
@@ -158,11 +201,24 @@ public class MainActivity extends AppCompatActivity {
     }
     //Added by Tammy Le, 15/4/2019
     //Function to renew the word that player has to guess
+    /*
+    renewWord()
+    get a new random word and shuffle all the letters to display
+    parameters: no parameters needed
+    return: void
+     */
     public void renewWord() {
         givenWord = availableWords.randomWord();
         shuffedWord = availableWords.shuffleWord(givenWord);
         shuffedLetters.setText(shuffedWord);
     }
+
+    /*
+    editCoin()
+    take the current amount of coin and put it into the SharedPreferences
+    parameters: current number of coin in Integer form
+    return: void, the function just edit the coin in the SharedPreference, doesn't return anything
+     */
     public void editCoin(int coin)
     {
         SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
@@ -171,6 +227,12 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
     //retrieve the value of coin from SharedPreference
+    /*
+    retrieveCoin()
+    retrieve the amount of coin currently holding in the SharedPreference
+    parameters: no parameters needed
+    returns: integer contains the number of coins.
+     */
     public int retrieveCoin()
     {
         int coin1;

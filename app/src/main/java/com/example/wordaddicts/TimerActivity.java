@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -75,7 +76,8 @@ public class TimerActivity extends AppCompatActivity{
         buttonBuyTime = (Button) findViewById(R.id.buyTimeButton);
         buttonBuyTime.setVisibility(View.INVISIBLE);// hide the button when the game has not started
 
-
+        mProgressBar = (ProgressBar) findViewById(R.id.progressbar_timerview);
+        mProgressBar1 = (ProgressBar) findViewById(R.id.progressbar1_timerview);
 
         highScoreTimer = (ImageView) findViewById(R.id.highscoreTimer);
 
@@ -106,6 +108,13 @@ public class TimerActivity extends AppCompatActivity{
 
         //Set max length for first level input
         textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(4) });
+
+        /*
+        set the onKey listener for textViewInput
+        it gets the user input from the keyboard and then compare with the givenWord
+        The level is also displayed according to what score user is having
+        sound is played accordingly
+         */
         textViewInput.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -162,6 +171,11 @@ public class TimerActivity extends AppCompatActivity{
                     }
                     else
                     {
+                     //added by Tammy Le
+                        //When player gets a wrong word -> input will be vibrated
+                        //Inspired by Priya
+                        Animation vibrate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.vibrate);
+                        textViewInput.startAnimation(vibrate);
                         //play sound incorrect
                         incorrectWord.start();
                     }
@@ -170,21 +184,25 @@ public class TimerActivity extends AppCompatActivity{
                 return false;
             }
         });
+        /*
+        initialize the click listeners for start button
+        sound is played
+        setTimer() function is called
+        set the visibility of all the needed views
+        start the timer by calling startTimer()
+        */
 
-        //initialize the click listeners
-        // If id is a Start button
         buttonStartTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //play sound
                 newgame.start();
-                //call setTimer function
+
                 setTimer();
                 score = 0;
                 scoreTextView.setText("Score: " + score);
                 leveltextview.setText("I");
-                //set the visibility of all needed views
                 buttonStartTime.setVisibility(View.INVISIBLE);
                 mProgressBar.setVisibility(View.INVISIBLE);
                 textViewShuffle.setVisibility(View.VISIBLE);//show the word that user needs to guess
@@ -194,7 +212,7 @@ public class TimerActivity extends AppCompatActivity{
                 buttonBuyTime.setVisibility(View.VISIBLE);// show the buyTime button when the game starts
                 textViewInput.setVisibility(View.VISIBLE);//show the textInput
 
-                //call startTimer function
+
                 startTimer();
 
                 //set the visibility of the main progress bar
@@ -206,10 +224,13 @@ public class TimerActivity extends AppCompatActivity{
         });
 
 
-        mProgressBar = (ProgressBar) findViewById(R.id.progressbar_timerview);
-        mProgressBar1 = (ProgressBar) findViewById(R.id.progressbar1_timerview);
-
         ///?Buy time button
+        /*
+        set the function to buy time when user click buytime Button
+        there will be a condition
+        if user's coin is more than 100 then they can buy more time buy trigger the plusTimer() function
+        new amount of coin is also put into the SharedPreference to assure the consitency of coin through out all activities
+         */
         buttonBuyTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -226,7 +247,11 @@ public class TimerActivity extends AppCompatActivity{
                 }
             }
         });
-        //navigate to the highScore activity when click
+
+        /*
+        set click listener for highScore icon
+        sound gets played and new intent is created to take user to TimerHighScorepActivity
+         */
         highScoreTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -238,6 +263,10 @@ public class TimerActivity extends AppCompatActivity{
             }
         });
 
+        /**
+        *   set a click listener when user click on the coin or amount of coin left
+        *   sound gets played and new intent is created to take user to ShopActivity
+        **/
         timerShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -251,24 +280,36 @@ public class TimerActivity extends AppCompatActivity{
 
     }
 
-
-
-    /**
-     * function renewWord: is used to shuffle new word based on a given word on LettersStorage class
-     * */
+    /*
+    renewWord()
+    get a new random word and shuffle all the letters to display
+    parameters: no parameters needed
+    return: void
+    */
     private void renewWord() {
         givenWord = availableWords.randomWordLevel1();
         shuffedWord = availableWords.shuffleWord(givenWord);
         textViewShuffle.setText(shuffedWord);
     }
     //different renewWord function to change to more complex word when user hitting a curtain score
+        /*
+    renewWordLevel2()
+    get a new random word from WORDLEVEL2 array in LetterStorage class and shuffle all the letters to display
+    parameters: no parameters needed
+    return: void
+     */
     private void renewWordLevel2()
     {
         givenWord = availableWords.randomWordLevel2();
         shuffedWord = availableWords.shuffleWord(givenWord);
         textViewShuffle.setText(shuffedWord);
     }
-
+    /*
+   renewWordLevel3()
+  get a new random word from WORDLEVEL3 array in LetterStorage class and shuffle all the letters to display
+  parameters: no parameters needed
+  return: void
+ */
     private void renewWordLevel3()
     {
         givenWord = availableWords.randomWordLevel3();
@@ -277,6 +318,12 @@ public class TimerActivity extends AppCompatActivity{
     }
 
     //Added by Tammy Le, 13/5/2019
+            /*
+    renewWordLevel4()
+    get a new random word from WORDLEVEL4 array in LetterStorage class and shuffle all the letters to display
+    parameters: no parameters needed
+    return: void
+     */
     private void renewWordLevel4()
     {
         givenWord = availableWords.randomWordLevel4();
@@ -284,13 +331,10 @@ public class TimerActivity extends AppCompatActivity{
         textViewShuffle.setText(shuffedWord);
     }
 
-
-
-
-
     /**
      *  function setTimer: is used to initialize values for the timer
-     *
+     *  parameters: no parameters needed for this funtion
+     *  returns : void
      *  const: time --> set the time to 10 which will be multiplied by 1000 to make the timer to 10 seconds*/
     private void setTimer(){
 
@@ -306,7 +350,8 @@ public class TimerActivity extends AppCompatActivity{
 
     /**
      * function startTimer: is used to start counting down the timer
-     *
+     * parameters: no parameters needed for this function
+     * returns : void
      * */
 
     private void startTimer() {
@@ -319,18 +364,20 @@ public class TimerActivity extends AppCompatActivity{
 
     /**
      *   function plusTime: is used to give extra time whenever player gets correct word
+     *   parameters: no parameters needed for this function
+     *   returns : void
      */
     private void plusTime(){
 
         if(totalTimeCountInMilliseconds < 10000)
         {
             countDownTimer.cancel();
-            countDownTimer = new MyCountDown(totalTimeCountInMilliseconds + 3000, 50);
+            countDownTimer = new MyCountDown(totalTimeCountInMilliseconds + 3000, 50);// give extra 3000 milliseconds if they get the answer right
         }
         else
         {
             countDownTimer.cancel();
-            countDownTimer = new MyCountDown(10000, 50);
+            countDownTimer = new MyCountDown(10000, 50);// set the timer to 10000 millisec if totalTimeCountInMilliseconds + 3000 > 10000
         }
 
         countDownTimer.start();
@@ -338,6 +385,11 @@ public class TimerActivity extends AppCompatActivity{
 
     }
 //function to close the soft keyboard
+    /*
+    closeKeyboard: use to close the softkeyboard when its called
+    parameters: no parameters needed
+    returns: void, the function just closes the keyboard, no return value needed
+     */
     private void closeKeyboard()
     {
         View view = this.getCurrentFocus();
@@ -348,6 +400,12 @@ public class TimerActivity extends AppCompatActivity{
         }
     }
     //create a custom CountDownTimer
+    /*
+    a new class created extended from CountDownTimer
+    we customed the onTick and onFinish functions to be suitable for our own app purpose
+    like set visibility of some elememts for them to appear in appropriate way
+    or set the progress bar along with the timer
+     */
     public class MyCountDown extends CountDownTimer {
         public MyCountDown(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
@@ -383,11 +441,16 @@ public class TimerActivity extends AppCompatActivity{
 
             closeKeyboard();
 
-
         }
 
 
     }
+    /*
+    editCoin()
+    take the current amount of coin and put it into the SharedPreferences
+    parameters: current number of coin in Integer form
+    return: void, the function just edit the coin in the SharedPreference, doesn't return anything
+    */
     public void editCoin(int coin)
     {
         SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
@@ -395,7 +458,14 @@ public class TimerActivity extends AppCompatActivity{
         editor.putInt("coin", coin);
         editor.apply();
     }
-    //retrieve the value of coin from SharedPreference
+
+
+    /*
+    retrieveCoin()
+    retrieve the amount of coin currently holding in the SharedPreference
+    parameters: no parameters needed
+    returns: integer contains the number of coins.
+     */
     public int retrieveCoin()
     {
         int coin1;

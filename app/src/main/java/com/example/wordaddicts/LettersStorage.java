@@ -50,15 +50,57 @@ public class LettersStorage {
      randomWord:
 
      function that choose a Random word from an array of words above
-
+     parameters: no parameters needed for this function
      Returns:
-     return the pseudorandom word
+     return a String contains pseudorandom word
 
      */
     public static String randomWord(){
         return WORDS[RANDOM.nextInt(WORDS.length)];
     }
 
+
+    /**
+     randomWordLevel1:
+
+     function that choose a Random word from an array of words above
+     parameters: no parameters needed for this function
+     Returns:
+     return a String contains pseudorandom word from WORDLEVEL1 array
+
+     */
+    public static String randomWordLevel1() {return WORDSLEVEL1[RANDOM.nextInt(WORDSLEVEL1.length)];}
+    /**
+     randomWordLevel2:
+
+     function that choose a Random word from an array of words above
+     parameters: no parameters needed for this function
+     Returns:
+     return a String contains pseudorandom word from WORDLEVEL2 array
+
+     */
+    public static String randomWordLevel2() {return WORDSLEVEL2[RANDOM.nextInt(WORDSLEVEL2.length)];}
+
+    /**
+     randomWordLevel3:
+
+     function that choose a Random word from an array of words above
+     parameters: no parameters needed for this function
+     Returns:
+     return a String contains pseudorandom word from WORDLEVEL3 array
+
+     */
+    public static String randomWordLevel3() {return WORDSLEVEL3[RANDOM.nextInt(WORDSLEVEL3.length)];}
+    /**
+     randomWordLevel4:
+
+     function that choose a Random word from an array of words above
+     parameters: no parameters needed for this function
+     Returns:
+     return a String contains pseudorandom word from WORDLEVEL4 array
+
+     */
+    public static String randomWordLevel4() {return WORDSLEVEL4[RANDOM.nextInt(WORDSLEVEL4.length)];} //Added by Tammy Le, 13/5/2019
     /**
      shuffleWord:
 
@@ -73,12 +115,6 @@ public class LettersStorage {
      then, shuffling the word
 
      */
-    //randomWord function for specific levels
-    public static String randomWordLevel1() {return WORDSLEVEL1[RANDOM.nextInt(WORDSLEVEL1.length)];}
-    public static String randomWordLevel2() {return WORDSLEVEL2[RANDOM.nextInt(WORDSLEVEL2.length)];}
-    public static String randomWordLevel3() {return WORDSLEVEL3[RANDOM.nextInt(WORDSLEVEL3.length)];}
-    public static String randomWordLevel4() {return WORDSLEVEL4[RANDOM.nextInt(WORDSLEVEL4.length)];} //Added by Tammy Le, 13/5/2019
-
     public static String shuffleWord(String word) {
         if (word != null && !"".equals(word)){
             char a[] = word.toCharArray();
@@ -127,13 +163,15 @@ public class LettersStorage {
         }
         return match;
     }
+/*
+    hint function added by Phong (16/4/2019)
+    parameters : givenWord is what the right word is
+                 hintField is what already revealed
+                 coin that the player has
+    return : void
+     functionality: give hint accordingly
+ */
 
-    //hint function added by Phong (16/4/2019)
-    //parameters : givenWord is what the right word is
-    //             hintField is what already revealed
-    //             coin that the player has
-    //return : void
-    // functionality: give hint accordingly
     public void giveHint(String givenWord, TextView hintField, int coin)
     {
         //if there is not enough coins, there will be no hint given

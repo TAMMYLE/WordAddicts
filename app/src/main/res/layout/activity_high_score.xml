@@ -25,14 +25,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="right"
-                android:id="@+id/classicHighScoreShop">
+                android:id="@+id/classicHighScore">
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:gravity="center_horizontal"
                     android:src="@drawable/coins" />
                 <TextView
-                    android:layout_width="30dp"
+                    android:layout_width="50dp"
                     android:layout_height="30dp"
 
                     android:id="@+id/highscoreclassicCoin"

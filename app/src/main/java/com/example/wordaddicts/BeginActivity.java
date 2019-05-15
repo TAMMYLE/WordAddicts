@@ -31,6 +31,10 @@ public class BeginActivity extends AppCompatActivity {
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativelayout);
 
         //Implements onclick listener
+        /*
+        set on click listener for the whole layout
+        a new intent is created taking user to the MenuActivity and sound is played accordingly
+         */
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
