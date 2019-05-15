@@ -15,9 +15,9 @@ You want to have something interesting, yet a little brain twisting for the morn
 
 * Function randomWord() *that choose a Random word from an array of words*.
 
-Parameters: no parameters needed for this function
+     * Parameters: no parameters needed for this function
 
-Returns:
+     * Returns:
      return a String contains pseudorandom word
      
 ```js
@@ -28,9 +28,9 @@ public static String randomWord(){
 
 * Function shuffleWord() *function that shuffles the chosen word*
 
-Parameters: word - a string storing a word
+     * Parameters: word - a string storing a word
 
-Returns:
+     * Returns:
      if word is not empty and the length is not space => converting word to a new character array
      then, shuffling the word
      
@@ -56,9 +56,9 @@ public static String shuffleWord(String word) {
 ```
 * Function compareWords() *function compare two given words*
 
-Parameters: two words that need to be compared
+     *  Parameters: two words that need to be compared
 
-Returns: a boolean value indicating if two given words are match
+     * Returns: a boolean value indicating if two given words are match
 
 ```js
 public static Boolean compareWords(String word1, String word2){
@@ -150,16 +150,15 @@ public void renewWord() {
 ```
 
 * Event check is triggered when player clicks check button
+     * *if the answer is correct --> score plus ten*
 
-     *if the answer is correct --> score plus ten*
+     * *set the Score field with extra score*
 
-     *set the Score field with extra score*
+     * *clear the input*
 
-     *clear the input*
+     * *renew the given word*
 
-     *renew the given word*
-
-     *the if condition is triggered when user guess the right word (guessWord == givenWord)*
+     * *the if condition is triggered when user guess the right word (guessWord == givenWord)*
 
 ```js
 checkButton.setOnClickListener(new View.OnClickListener() {
@@ -319,9 +318,79 @@ buttonStartTime.setOnClickListener(new View.OnClickListener() {
         });
 ```
 
+* Key Enter Event: 
+     * set the onKey listener for textViewInput, 
+     * it gets the user input from the keyboard and then compare with the givenWord
+     * The level is also displayed according to what score user is having
+     * sound is played accordingly
+     
+```js
 
+textViewInput.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
+                {
+                    //retrieving user's input --> convert to string
+                    guessWord = textViewInput.getText().toString();
 
+                    //added by Tammy, 3/5/2019
+                    //Hide the soft keyboard when user pressed
+                    closeKeyboard();
 
+                    //clear the input
+                    textViewInput.setText("");
+                    //display a message according to the result
+                    if(availableWords.compareWords(givenWord, guessWord))
+                    {
+
+                        if(score >= 800)
+                        {
+                            //set max length for input Level 4
+                            textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(6) });
+                            leveltextview.setText("IV");
+                            renewWordLevel4();
+                        }
+
+                        else if(score >= 400)
+                        {
+                            //set max length for input Level 3
+                            textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(5) });
+                            leveltextview.setText("III");
+                            renewWordLevel3();
+                        }
+
+                        else if(score >= 200)
+                        {
+                            //set max length for input Level 2
+                            textViewInput.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(4) });
+                            leveltextview.setText("II" );
+                            renewWordLevel2();
+                        }
+                        else
+                        {
+                            leveltextview.setText("I");
+                            renewWord();
+                        }
+
+                        score += 10;//add the score
+                        scoreTextView.setText("Score: " + score);//increase the score when user insert a right answer
+                        plusTime();
+                        //play sound
+                        correctWord.start();
+
+                    }
+                    else
+                    {
+                        //play sound incorrect
+                        incorrectWord.start();
+                    }
+
+                }
+                return false;
+            }
+        });
+```
 
 
 
