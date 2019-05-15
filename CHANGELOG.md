@@ -136,3 +136,9 @@
 - Added sounds when user get wrong or right answers
 - Deleted checkButton in TimerActivity
 - Added Enter to check the input
+
+# Week 10, Wednesday 15 May
+
+[Tammy]
+- Updated License file
+- Added information in Readme file
