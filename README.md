@@ -14,9 +14,12 @@ You want to have something interesting, yet a little brain twisting for the morn
 ## *Main classes*
 
 * Function randomWord() that choose a Random word from an array of words.
+
 Parameters: no parameters needed for this function
+
 Returns:
      return a String contains pseudorandom word
+     
 ```js
 public static String randomWord(){
         return WORDS[RANDOM.nextInt(WORDS.length)];
@@ -24,10 +27,13 @@ public static String randomWord(){
 ```
 
 * Function shuffleWord() function that shuffles the chosen word
+
 Parameters: word - a string storing a word
+
 Returns:
      if word is not empty and the length is not space => converting word to a new character array
      then, shuffling the word
+     
 ```js
 public static String shuffleWord(String word) {
 
@@ -49,8 +55,11 @@ public static String shuffleWord(String word) {
     }
 ```
 * Function compareWords() function compare two given words
+
 Parameters: two words that need to be compared
+
 Returns: a boolean value indicating if two given words are match
+
 ```js
 public static Boolean compareWords(String word1, String word2){
         word1 = word1.toLowerCase();
@@ -76,7 +85,9 @@ public static Boolean compareWords(String word1, String word2){
     }
 ```
 * Function giveHint() review a letter each time the function is called
+
 Parameters : 
+
 - **givenWord** is what the right word is
 - **hintField** is what already revealed
 - **coin** that the player has
