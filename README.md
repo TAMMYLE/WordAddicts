@@ -11,9 +11,9 @@ You want to have something interesting, yet a little brain twisting for the morn
 - Student 1: Phong Le - 216324041 
 - Student 2: Tammy Le - 216404524
 
-## *Main classes*
+## *LetterStorage class*
 
-* Function randomWord() that choose a Random word from an array of words.
+* Function randomWord() *that choose a Random word from an array of words*.
 
 Parameters: no parameters needed for this function
 
@@ -26,7 +26,7 @@ public static String randomWord(){
     }
 ```
 
-* Function shuffleWord() function that shuffles the chosen word
+* Function shuffleWord() *function that shuffles the chosen word*
 
 Parameters: word - a string storing a word
 
@@ -54,7 +54,7 @@ public static String shuffleWord(String word) {
         return word;
     }
 ```
-* Function compareWords() function compare two given words
+* Function compareWords() *function compare two given words*
 
 Parameters: two words that need to be compared
 
@@ -84,14 +84,17 @@ public static Boolean compareWords(String word1, String word2){
         return match;
     }
 ```
-* Function giveHint() review a letter each time the function is called
+
+* Function giveHint() *review a letter each time the function is called*
 
 Parameters : 
 
 - **givenWord** is what the right word is
 - **hintField** is what already revealed
 - **coin** that the player has
+
 Return : void
+
 ```js
 public void giveHint(String givenWord, TextView hintField, int coin)
     {
@@ -129,6 +132,98 @@ public void giveHint(String givenWord, TextView hintField, int coin)
         hintField.setText(hintRevealed);
     }
 ```
+
+## *Main class*
+
+* Function renewWord() *is to renew the word that player has to guess*
+
+    parameters: no parameters needed
+    
+    return: void
+    
+```js
+public void renewWord() {
+        givenWord = availableWords.randomWord();
+        shuffedWord = availableWords.shuffleWord(givenWord);
+        shuffedLetters.setText(shuffedWord);
+    }
+```
+
+* Event check is triggered when player clicks check button
+
+*if the answer is correct --> score plus ten *
+
+*set the Score field with extra score*
+
+*clear the input*
+
+*renew the given word*
+
+*the if condition is triggered when user guess the right word (guessWord == givenWord)*
+
+```js
+checkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                guessWord = textInput.getText().toString();
+                //display a message according to the result
+                if(availableWords.compareWords(givenWord, guessWord))
+                {                                       
+                    score += 10;                        //if the answer is correct, score plus ten
+                    result.setText("Score: " + score);  //set the Score field with extra score
+                    textInput.setText("");              //clear the input
+                    renewWord();                        
+                }
+                else
+                {
+                    result.setText("Score" + score);
+
+                    //When player gets a wrong word -> input will be vibrated
+                   
+                    Animation vibrate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.vibrate);
+                    textInput.startAnimation(vibrate);
+                }
+            }
+        });
+```
+* Method editCoin() *take the current amount of coin and put it into the SharedPreferences*
+
+Parameters: current number of coin in Integer form
+
+Return: void, the function just edit the coin in the SharedPreference, doesn't return anything
+
+```js
+public void editCoin(int coin)
+    {
+        SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("coin", coin);
+        editor.apply();
+    }
+```
+* Method retrieveCoin() *retrieve the amount of coin currently holding in the SharedPreference*
+
+Parameters: no parameters needed
+
+Return: integer contains the number of coins.
+
+```js
+public int retrieveCoin()
+    {
+        int coin1;
+        SharedPreferences preferences = getSharedPreferences("COIN_PREFS", 0);
+
+        coin1 = preferences.getInt("coin", 0);
+        return coin1;
+    }
+```
+
+
+
+
+
+                 
+
      
 
 
