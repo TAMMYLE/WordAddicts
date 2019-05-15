@@ -87,13 +87,13 @@ public static Boolean compareWords(String word1, String word2){
 
 * Function giveHint() *review a letter each time the function is called*
 
-Parameters : 
+     * Parameters : 
 
-- **givenWord** is what the right word is
-- **hintField** is what already revealed
-- **coin** that the player has
+          - **givenWord** is what the right word is
+          - **hintField** is what already revealed
+          - **coin** that the player has
 
-Return : void
+     * Return : void
 
 ```js
 public void giveHint(String givenWord, TextView hintField, int coin)
@@ -137,9 +137,9 @@ public void giveHint(String givenWord, TextView hintField, int coin)
 
 * Function renewWord() *is to renew the word that player has to guess*
 
-    parameters: no parameters needed
+    * parameters: no parameters needed
     
-    return: void
+    * return: void
     
 ```js
 public void renewWord() {
@@ -151,15 +151,15 @@ public void renewWord() {
 
 * Event check is triggered when player clicks check button
 
-*if the answer is correct --> score plus ten*
+     *if the answer is correct --> score plus ten*
 
-*set the Score field with extra score*
+     *set the Score field with extra score*
 
-*clear the input*
+     *clear the input*
 
-*renew the given word*
+     *renew the given word*
 
-*the if condition is triggered when user guess the right word (guessWord == givenWord)*
+     *the if condition is triggered when user guess the right word (guessWord == givenWord)*
 
 ```js
 checkButton.setOnClickListener(new View.OnClickListener() {
@@ -188,9 +188,9 @@ checkButton.setOnClickListener(new View.OnClickListener() {
 ```
 * Method editCoin() *take the current amount of coin and put it into the SharedPreferences*
 
-Parameters: current number of coin in Integer form
+     * Parameters: current number of coin in Integer form
 
-Return: void, the function just edit the coin in the SharedPreference, doesn't return anything
+     * Return: void, the function just edit the coin in the SharedPreference, doesn't return anything
 
 ```js
 public void editCoin(int coin)
@@ -203,9 +203,9 @@ public void editCoin(int coin)
 ```
 * Method retrieveCoin() *retrieve the amount of coin currently holding in the SharedPreference*
 
-Parameters: no parameters needed
+     * Parameters: no parameters needed
 
-Return: integer contains the number of coins.
+     * Return: integer contains the number of coins.
 
 ```js
 public int retrieveCoin()
@@ -221,9 +221,9 @@ public int retrieveCoin()
 ## *Timer class*
 
 * Function setTimer: is used to initialize values for the timer
- * parameters: no parameters needed for this funtion
- *  returns : void
- *  const: time --> set the time to 10 which will be multiplied by 1000 to make the timer to 10 seconds
+     * parameters: no parameters needed for this funtion
+     *  returns : void
+     *  const: time --> set the time to 10 which will be multiplied by 1000 to make the timer to 10 seconds
  
  ```js
      private void setTimer(){
@@ -239,8 +239,8 @@ public int retrieveCoin()
     }
 ```
 * Function startTimer: is used to start counting down the timer
- * parameters: no parameters needed for this function
- * returns : void
+     * parameters: no parameters needed for this function
+     * returns : void
  
  ```js
  private void startTimer() {
@@ -253,8 +253,8 @@ public int retrieveCoin()
 ```
 
 * Function plusTime: is used to give extra time whenever player gets correct word
- *   parameters: no parameters needed for this function
- *   returns : void
+     *   parameters: no parameters needed for this function
+     *   returns : void
 
 ```js
 private void plusTime(){
@@ -277,10 +277,10 @@ private void plusTime(){
 ```
 
 * Start Timer Event: initialize the click listeners for start button
- * sound is played
- * setTimer() function is called
- * set the visibility of all the needed views
- * start the timer by calling startTimer()
+     * sound is played
+     * setTimer() function is called
+     * set the visibility of all the needed views
+     * start the timer by calling startTimer()
 
 ```js
 buttonStartTime.setOnClickListener(new View.OnClickListener() {
