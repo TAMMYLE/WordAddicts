@@ -151,7 +151,7 @@ public void renewWord() {
 
 * Event check is triggered when player clicks check button
 
-*if the answer is correct --> score plus ten *
+*if the answer is correct --> score plus ten*
 
 *set the Score field with extra score*
 
@@ -217,6 +217,110 @@ public int retrieveCoin()
         return coin1;
     }
 ```
+
+## *Timer class*
+
+* Function setTimer: is used to initialize values for the timer
+ * parameters: no parameters needed for this funtion
+ *  returns : void
+ *  const: time --> set the time to 10 which will be multiplied by 1000 to make the timer to 10 seconds
+ 
+ ```js
+     private void setTimer(){
+
+        //initialize the time variable
+        int time = 10;
+
+        //calculate the totaltime
+        totalTimeCountInMilliseconds =  time * 1000;
+
+        //set the maximum time of the progress bar timer
+        mProgressBar1.setMax( time * 1000);
+    }
+```
+* Function startTimer: is used to start counting down the timer
+ * parameters: no parameters needed for this function
+ * returns : void
+ 
+ ```js
+ private void startTimer() {
+
+        //call renewWord function once the timer is on
+        renewWord();
+        countDownTimer = new MyCountDown(totalTimeCountInMilliseconds, 50);
+        countDownTimer.start();
+    }
+```
+
+* Function plusTime: is used to give extra time whenever player gets correct word
+ *   parameters: no parameters needed for this function
+ *   returns : void
+
+```js
+private void plusTime(){
+
+        if(totalTimeCountInMilliseconds < 10000)
+        {
+            countDownTimer.cancel();
+            countDownTimer = new MyCountDown(totalTimeCountInMilliseconds + 3000, 50);
+        }
+        else
+        {
+            countDownTimer.cancel();
+            countDownTimer = new MyCountDown(10000, 50);
+        }
+
+        countDownTimer.start();
+
+
+    }
+```
+
+* Start Timer Event: initialize the click listeners for start button
+ * sound is played
+ * setTimer() function is called
+ * set the visibility of all the needed views
+ * start the timer by calling startTimer()
+
+```js
+buttonStartTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //play sound
+                newgame.start();
+                
+                //call setTimer function
+                setTimer();
+                
+                score = 0;
+                scoreTextView.setText("Score: " + score);
+                leveltextview.setText("I");
+                
+                //set the visibility of all needed views
+                buttonStartTime.setVisibility(View.INVISIBLE);
+                mProgressBar.setVisibility(View.INVISIBLE);
+                textViewShuffle.setVisibility(View.VISIBLE);//show the word that user needs to guess
+                scoreTextView.setVisibility(View.VISIBLE);// show the score when the game starts
+                leveltextview.setVisibility(View.VISIBLE);// show the level when the game starts
+                timerCoin.setVisibility(View.VISIBLE);//show the coin when the game starts
+                buttonBuyTime.setVisibility(View.VISIBLE);// show the buyTime button when the game starts
+                textViewInput.setVisibility(View.VISIBLE);//show the textInput
+
+                //call startTimer function
+                startTimer();
+
+                //set the visibility of the main progress bar
+                mProgressBar1.setVisibility(View.VISIBLE);
+
+
+
+            }
+        });
+```
+
+
+
 
 
 
