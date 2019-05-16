@@ -25,7 +25,7 @@ public class BeginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_begin);
 
         //set media player
-        final MediaPlayer layoutClicked = MediaPlayer.create(this, R.raw.mysecondclick);
+        final MediaPlayer layoutClicked = MediaPlayer.create(this, R.raw.clicked);
 
         //Get the RelativeLayout object
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativelayout);

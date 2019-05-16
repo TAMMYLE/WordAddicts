@@ -3,6 +3,7 @@ package com.example.wordaddicts;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,9 @@ public class HighScoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
+
+        //set media player
+        final MediaPlayer layoutClicked = MediaPlayer.create(this, R.raw.clicked);
 
         //get all the elements from the layout
         best1TextView = (TextView) findViewById(R.id.classicBest1);
@@ -104,6 +108,7 @@ public class HighScoreActivity extends AppCompatActivity {
         classicShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                layoutClicked.start();
                 Intent intent = new Intent(getApplicationContext(), ShopActivity.class);
                 startActivity(intent);
                 finish();

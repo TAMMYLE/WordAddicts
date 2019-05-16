@@ -2,8 +2,10 @@ package com.example.wordaddicts;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,11 +16,21 @@ public class ShopActivity extends AppCompatActivity {
     private ImageView info;
     private int coin;
 
+    private CardView basicPack, valuePack, megaPack, superPack;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
+
+        basicPack = (CardView) findViewById(R.id.basicPack);
+        valuePack = (CardView) findViewById(R.id.valuePack);
+        megaPack = (CardView) findViewById(R.id.megaPack);
+        superPack = (CardView) findViewById(R.id.superPack);
+
+        //set media player
+        final MediaPlayer packClick = MediaPlayer.create(this, R.raw.clicked);
 
         storeCoin = (TextView) findViewById(R.id.storeCoin);
 
@@ -36,6 +48,55 @@ public class ShopActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+
+        basicPack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+                intent.putExtra("pack", 1.99);
+                startActivity(intent);
+                finish();
+            packClick.start();
+
+            }
+        });
+
+        valuePack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                packClick.start();
+                Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+                intent.putExtra("pack", 2.99);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+        megaPack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                packClick.start();
+                Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+                intent.putExtra("pack", 7.99);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+        superPack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                packClick.start();
+                Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+                intent.putExtra("pack", 14.99);
+                startActivity(intent);
+                finish();
+
             }
         });
     }

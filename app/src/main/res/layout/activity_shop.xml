@@ -53,25 +53,7 @@
         android:gravity="center"
         android:orientation="vertical"
         >
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:gravity="right"-->
-            <!--&gt;-->
-            <!--<ImageView-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:src="@drawable/coins"-->
-                <!--android:gravity="center_horizontal"-->
-                <!--/>-->
-            <!--<TextView-->
-                <!--android:layout_width="60dp"-->
-                <!--android:layout_height="30dp"-->
-                <!--android:id="@+id/storeCoin"-->
-                <!--android:textSize="20dp"-->
-                <!--android:gravity="center_horizontal"/>-->
-        <!--</LinearLayout>-->
+
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -110,6 +92,7 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             app:cardCornerRadius="10dp"
+            android:id="@+id/basicPack"
             >
 
             <LinearLayout
@@ -136,16 +119,17 @@
                     android:layout_height="wrap_content"
 
                     android:padding="20dp"
-                    android:text="   2X COINS  "
+                    android:text="250 COINS"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/cormorant_garamond_semibold" />
+                    />
 
                 <TextView
+
                     android:layout_width="80dp"
                     android:layout_height="40dp"
                     android:background="@drawable/squareyellow"
-                    android:text="4.99$"
+                    android:text="1.99$"
                     android:gravity="center"/>
 
 
@@ -170,6 +154,7 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             app:cardCornerRadius="10dp"
+            android:id="@+id/valuePack"
             >
 
             <LinearLayout
@@ -196,12 +181,13 @@
                     android:layout_height="wrap_content"
 
                     android:padding="20dp"
-                    android:text="BASIC PACK"
+                    android:text="500 COINS"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/cormorant_garamond_semibold" />
+                     />
 
                 <TextView
+
                     android:layout_width="80dp"
                     android:layout_height="40dp"
                     android:background="@drawable/squareyellow"
@@ -224,7 +210,7 @@
         <android.support.v7.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-
+            android:id="@+id/megaPack"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="10dp"
@@ -255,12 +241,13 @@
                     android:layout_height="wrap_content"
 
                     android:padding="20dp"
-                    android:text="VALUE PACK"
+                    android:text="1500 COINS"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/cormorant_garamond_semibold" />
+                    />
 
                 <TextView
+
                     android:layout_width="80dp"
                     android:layout_height="40dp"
                     android:background="@drawable/squareyellow"
@@ -283,7 +270,7 @@
         <android.support.v7.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-
+            android:id="@+id/superPack"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="10dp"
@@ -314,75 +301,17 @@
                     android:layout_height="wrap_content"
 
                     android:padding="20dp"
-                    android:text="MEGA PACK"
+                    android:text="3000 COINS"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/cormorant_garamond_semibold" />
+                     />
 
                 <TextView
+
                     android:layout_width="80dp"
                     android:layout_height="40dp"
                     android:background="@drawable/squareyellow"
                     android:text="14.99$"
-                    android:gravity="center"/>
-
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:clipToPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.CardView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="10dp"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="1dp"
-                    android:background="@color/cardview_light_background"
-                    android:layout_margin="2dp"/>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/coins"
-                    android:background="@drawable/circlebackgroundlightgray"
-                    android:paddingLeft="40dp"
-                    android:padding="20dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:padding="20dp"
-                    android:text="SUPER PACK"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/cormorant_garamond_semibold" />
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/squareyellow"
-                    android:text="46.99$"
                     android:gravity="center"/>
 
 

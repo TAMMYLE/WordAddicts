@@ -2,6 +2,7 @@ package com.example.wordaddicts;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -65,7 +66,10 @@ public class MainActivity extends AppCompatActivity {
         shuffedWord = availableWords.shuffleWord(givenWord);
         shuffedLetters.setText(shuffedWord);// display that shuffeld word
 
-
+        //set media player
+        final MediaPlayer newGame = MediaPlayer.create(this, R.raw.newgame);
+        final MediaPlayer correct = MediaPlayer.create(this, R.raw.correct);
+        final MediaPlayer incorrect = MediaPlayer.create(this, R.raw.incorrect);
 
 
         //this function checks if the word match when ever the user click check button (created by Phong 9/4/2019)
@@ -85,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                  */
                 if(availableWords.compareWords(givenWord, guessWord))
                 {
+                    //play sound
+                    correct.start();
                     score += 10;
                     result.setText("Score: " + score);
                     textInput.setText("");
@@ -93,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    //play sound
+                    incorrect.start();
                     result.setText("Score" + score);
 
                     //added by Tammy Le
@@ -118,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //play sound
+                newGame.start();
                 givenWord = availableWords.randomWord();
                 shuffedWord = availableWords.shuffleWord(givenWord);
                 shuffedLetters.setText(shuffedWord);
@@ -135,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
         highscore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Play sound
+                newGame.start();
 
                 SharedPreferences preferences = getSharedPreferences("PREFS", 0);
                 SharedPreferences.Editor editor = preferences.edit();
@@ -154,6 +167,8 @@ public class MainActivity extends AppCompatActivity {
         mainShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Play sound
+                newGame.start();
                 Intent intent = new Intent(getApplicationContext(), ShopActivity.class);
                 startActivity(intent);
                 finish();
@@ -173,6 +188,9 @@ public class MainActivity extends AppCompatActivity {
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //Play sound
+                newGame.start();
 
                 //pop up a message if the hints is already fully revealed
                 if(!(givenWord.length() > hint.length()))

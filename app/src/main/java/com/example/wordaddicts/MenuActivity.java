@@ -24,7 +24,7 @@ public class MenuActivity extends AppCompatActivity {
         infoButton = (ImageView) findViewById(R.id.infobutton);
 
         //set media player
-        final MediaPlayer layoutClicked = MediaPlayer.create(this, R.raw.mysecondclick);
+        final MediaPlayer layoutClicked = MediaPlayer.create(this, R.raw.clicked);
 
 
 
