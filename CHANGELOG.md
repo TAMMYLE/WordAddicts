@@ -129,9 +129,16 @@
 # Week 10, Tuesday 14 May
 [PHONG]
 - Make some changes to the timer activity [1 hour]
+- Add SharedPreference for coin [1 hour]
 
 [Tammy]
 - Updated LetterStorage
 - Added sounds when user get wrong or right answers
 - Deleted checkButton in TimerActivity
 - Added Enter to check the input
+
+# Week 10, Wednesday 15 May
+
+[Tammy]
+- Updated License file
+- Added information in Readme file
