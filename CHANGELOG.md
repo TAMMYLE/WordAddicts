@@ -142,3 +142,8 @@
 [Tammy]
 - Updated License file
 - Added information in Readme file
+
+# Week 10, Thursday 16 May
+[PHONG]
+- finalise the app
+- added paymentActivity
