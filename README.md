@@ -391,10 +391,14 @@ textViewInput.setOnKeyListener(new View.OnKeyListener() {
             }
         });
 ```
+In order to run the app with CardView and Paypal you need to go to **Gradle (Module: App)**. Add these two lines:
 
 
 
-
+```js
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.16.0'
+```
                  
 
      
